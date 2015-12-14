@@ -1,0 +1,16 @@
+<decorators defaultdir="/decorators">
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+    <excludes>
+        <pattern>/demos/*</pattern>
+        <pattern>/resources/*</pattern>
+        <pattern>/rest/*</pattern>
+    </excludes> 
+    <decorator name="default" page="default.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>

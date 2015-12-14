@@ -1,0 +1,35 @@
+ <!-- maxActive: Maximum number of dB connections in pool. Make sure you
+         configure your mysqld max_connections large enough to handle
+         all of your db connections. Set to -1 for no limit.
+
+      maxIdle: Maximum number of idle dB connections to retain in pool.
+      Set to -1 for no limit.  See also the DBCP documentation on this
+      and the minEvictableIdleTimeMillis configuration parameter.
+      
+      maxWait: Maximum time to wait for a dB connection to become available
+      in ms, in this example 10 seconds. An Exception is thrown if
+      this timeout is exceeded.  Set to -1 to wait indefinitely.
+-->
+
+<!--  removeAbandoned: When available db connections run low DBCP will recover 
+      and recycle any abandoned dB connections it finds. The default is false. 
+      
+      removeAbandonedTimeout: attribute to set the number of seconds a dB connection 
+      has been idle before it is considered abandoned
+      
+      logAbandoned:attribute can be set to true if you want DBCP to log a stack trace of 
+      the code which abandoned the dB connection resources
+-->
+
+<Context path="/slapulse" docBase="slapulse" debug="99" reloadable="true"
+    antiJARLocking="true" antiResourceLocking="false">
+
+    <Resource name="jdbc/SLAPulse" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              driverClassName="${hibernate.connection.driver_class}"
+              username="${hibernate.connection.username}" 
+              password="${hibernate.connection.password}" 
+              url="${hibernate.connection.url}"
+              defaultAutoCommit="true" removeAbandoned="true" 
+              removeAbandonedTimeout="60" logAbandoned="true"/>
+</Context>

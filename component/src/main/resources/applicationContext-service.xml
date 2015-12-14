@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+    <bean id="lookupManager" class="com.renewtek.service.impl.LookupManagerImpl">
+        <property name="lookupDAO" ref="lookupDAO"/>
+    </bean>
+
+    <!-- Generic manager that can be used to do basic CRUD operations on any objects -->
+    <bean id="manager" class="com.renewtek.service.impl.BaseManager">
+        <property name="DAO" ref="dao"/>
+    </bean>
+
+    <!-- Transaction declarations for business services.  To apply a generic transaction proxy to
+all managers, you might look into using the BeanNameAutoProxyCreator -->
+    <bean id="userManager" class="com.renewtek.service.impl.UserManagerImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+
+    <!-- This interceptor insures that that users can only update themselves, not other users -->
+    <bean id="roleManager" class="com.renewtek.service.impl.RoleManagerImpl">
+        <property name="roleDAO" ref="roleDAO"/>
+    </bean>
+
+    <!--bean id="mailEngine" class="com.renewtek.service.MailEngine">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="velocityEngine" ref="velocityEngine"/>
+    </bean-->
+
+    <!-- bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}"/>
+        <property name="username" value="${mail.username}"/>
+        <property name="password" value="${mail.password}"/>
+    </bean-->
+
+    <!-- Configure Velocity for sending e-mail -->
+    <!-- bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">
+                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+                <prop key="velocimacro.library"></prop>
+            </props>
+        </property>
+    </bean-->
+
+    <!-- bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage" singleton="false">
+        <property name="from" value="${mail.default.from}"/>
+    </bean-->
+    <!--Reference-START-->
+    <bean id="referenceManager" class="com.renewtek.service.impl.ReferenceManagerImpl" autowire="byName"/>
+    <!--Reference-END-->
+    <bean id="calendarManager" class="com.renewtek.service.impl.CalendarManagerImpl" autowire="byName"/>
+    <!--history diagram report -END-->
+    <!--CalendarDate-START-->
+    <bean id="calendarDateManager" class="com.renewtek.service.impl.CalendarDateManagerImpl" autowire="byName"/>
+    <!--CalendarDate-END-->
+    <!--DefaultWeek-START-->
+    <bean id="defaultWeekManager" class="com.renewtek.service.impl.DefaultWeekManagerImpl" autowire="byName"/>
+    <!--DefaultWeek-END-->
+    <!--WorkHourRange-START-->
+    <bean id="workHourRangeManager" class="com.renewtek.service.impl.WorkHourRangeManagerImpl" autowire="byName"/>
+    <!--WorkHourRange-END-->
+    <!--DayModel-START-->
+    <bean id="dayModelManager" class="com.renewtek.service.impl.DayModelManagerImpl" autowire="byName"/>
+    <!--DayModel-END-->
+    <!--ServiceLevelAgreement-START-->
+    <bean id="serviceLevelAgreementManager" class="com.renewtek.service.impl.ServiceLevelAgreementManagerImpl"
+          autowire="byName"/>
+    <!--ServiceLevelAgreement-END-->
+    <!--BusinessProcess-START-->
+    <bean id="businessProcessManager" class="com.renewtek.service.impl.BusinessProcessManagerImpl" autowire="byName"/>
+    <!--BusinessProcess-END-->
+</beans>

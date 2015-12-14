@@ -1,0 +1,11 @@
+<!-- This datasource file is for jboss application server only -->
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+ <local-tx-datasource>
+   <jndi-name>jdbc/SLAPulse</jndi-name>
+   <connection-url>jdbc:jtds:sqlserver://192.168.134.135:1433/slapulse</connection-url>
+   <driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+   <user-name>slapulse</user-name>
+   <password>slapulse</password>
+ </local-tx-datasource>
+</datasources>

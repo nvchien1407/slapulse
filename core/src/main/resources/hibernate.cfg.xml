@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="com.renewtek.model.BusinessProcess"/>
+        <mapping class="com.renewtek.model.CalendarDate"/>
+        <mapping class="com.renewtek.model.DayModel"/>
+        <mapping class="com.renewtek.model.DefaultWeekDay"/>
+        <mapping class="com.renewtek.model.ServiceLevelAgreement"/>
+        <mapping class="com.renewtek.model.Reference"/>
+        <mapping class="com.renewtek.model.WorkHourRange"/>
+        <mapping class="com.renewtek.model.Role"/>
+        <mapping class="com.renewtek.model.User"/>
+        <mapping class="com.renewtek.model.ChangeLog"/>
+    </session-factory>
+</hibernate-configuration>

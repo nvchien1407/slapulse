@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+can override from command line with -Dlogback.configurationFile=/path/to/config.xml
+-->
+<configuration scan="true">
+   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+         <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %p [%t] %c{1}: %m%n</pattern>
+      </encoder>
+   </appender>
+
+   <appender name="SLAPULSE_COMPONENT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>slapulse_component.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+         <FileNamePattern>slapulse_component_%i.log</FileNamePattern>
+         <MinIndex>1</MinIndex>
+         <MaxIndex>12</MaxIndex>
+      </rollingPolicy>
+
+      <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+         <MaxFileSize>10MB</MaxFileSize>
+      </triggeringPolicy>
+
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+         <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %p [%t] %c{1}: %m%n</pattern>
+      </encoder>
+   </appender>
+
+   <logger name="com.renewtek">
+      <level value="WARN"/>
+   </logger>
+
+   <root>
+      <level value="WARN"/>
+      <appender-ref ref="SLAPULSE_COMPONENT_FILE"/>
+   </root>
+
+</configuration>

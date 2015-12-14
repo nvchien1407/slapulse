@@ -1,0 +1,14 @@
+<invoke description="get Login Page" url="/"/>
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+<verifytitle description="we should see the login title" 
+    text="${webapp.prefix}${login.title}"/>
+<setinputfield description="set user name" name="j_username" value="mraible"/>
+<setinputfield description="set password" name="j_password" value="tomcat"/>
+<clickbutton label="${button.login}" description="Click the submit button"/>
+<verifytitle description="Home Page follows if login ok"
+    text="${webapp.prefix}${mainMenu.title}"/>

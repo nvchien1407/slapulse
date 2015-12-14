@@ -1,0 +1,500 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>slapulse</artifactId>
+		<groupId>com.renewtek</groupId>
+		<version>1.5.23-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>slapulse-core</artifactId>
+	<packaging>jar</packaging>
+	<name>SLAPulse Core</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<!-- saigon -->
+		<!-- <dependency> <groupId>com.smsmt.saigon</groupId> <artifactId>saigon-core</artifactId> 
+			<version>${saigon.version}</version> <exclusions> <exclusion> <groupId>com.renewtek.saigon</groupId> 
+			<artifactId>saigon-formgen-flex</artifactId> </exclusion> <exclusion> <groupId>com.renewtek</groupId> 
+			<artifactId>renewtek-spring</artifactId> </exclusion> <exclusion> <groupId>com.renewtek</groupId> 
+			<artifactId>renewtek-security</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-core</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-tx</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-asm</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-aop</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-context</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-context-support</artifactId> </exclusion> <exclusion> 
+			<groupId>org.springframework</groupId> <artifactId>spring-orm</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-beans</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-test</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-core</artifactId> </exclusion> <exclusion> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-ldap</artifactId> </exclusion> <exclusion> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-config</artifactId> </exclusion> <exclusion> 
+			<groupId>org.springframework.security</groupId> <artifactId>spring-security-web</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-aspects</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework.ldap</groupId> <artifactId>spring-ldap-core</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-expression</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-oxm</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-jms</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-web</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-webmvc</artifactId> 
+			</exclusion> <exclusion> <groupId>org.springframework.security.extensions</groupId> 
+			<artifactId>spring-security-kerberos-core</artifactId> </exclusion> <exclusion> 
+			<groupId>com.googlecode</groupId> <artifactId>simpleobjectassembler</artifactId> 
+			</exclusion> <exclusion> <groupId>org.compass-project</groupId> <artifactId>compass</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.solr</groupId> <artifactId>solr-core</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.solr</groupId> <artifactId>solr-common</artifactId> 
+			</exclusion> <exclusion> <groupId>com.sun.xml.bind</groupId> <artifactId>jaxb-impl</artifactId> 
+			</exclusion> <exclusion> <groupId>org.antlr</groupId> <artifactId>antlr</artifactId> 
+			</exclusion> exclusion> <groupId>org.hibernate</groupId> <artifactId>hibernate-search</artifactId> 
+			</exclusion exclusion> <groupId>org.apache.lucene</groupId> <artifactId>lucene-core</artifactId> 
+			</exclusion <exclusion> <groupId>net.sf.dozer</groupId> <artifactId>dozer</artifactId> 
+			</exclusion> <exclusion> <groupId>org.opensymphony.quartz</groupId> <artifactId>quartz</artifactId> 
+			</exclusion> <exclusion> <groupId>com.google.code.findbugs</groupId> <artifactId>jsr305</artifactId> 
+			</exclusion> <exclusion> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
+			</exclusion> <exclusion> <groupId>ie.omk</groupId> <artifactId>smppapi</artifactId> 
+			</exclusion> </exclusions> </dependency> -->
+
+
+		<!--Logging framework -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>0.9.29</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.29</version>
+		</dependency>
+
+		<!--End of Logging framework -->
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxfVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.woodstox</groupId>
+					<artifactId>wstx-asl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxfVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxfVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>${axis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-saaj</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis-wsdl4j</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springVersion}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springVersion}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springVersion}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${springVersion}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springVersion}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.3.2.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>3.1.0.GA</version>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.2.3</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-nop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>jmock</groupId>
+			<artifactId>jmock</artifactId>
+			<version>1.1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- email -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- velocity -->
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- jdbc -->
+		<dependency>
+			<groupId>net.sourceforge.jtds</groupId>
+			<artifactId>jtds</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.smsmt.saigon</groupId> <artifactId>saigon-api</artifactId> 
+			<version>${saigon.version}</version> </dependency> -->
+
+		<!-- <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.2.0</version>
+		</dependency> -->
+
+
+		<!-- <dependency> <groupId>com.renewtek</groupId> <artifactId>renewtek-security</artifactId> 
+			<version>0.6</version> </dependency> -->
+			
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+			<version>1.1</version>
+		</dependency>
+				
+	</dependencies>
+	<!-- <distributionManagement>
+		<site>
+			<id>renewtek.vn</id>
+			<name>Renewtek Maven Site Server</name>
+			<url>dav:${maven.site.server}/${pom.parent.artifactId}/${artifactId}</url>
+		</site>
+	</distributionManagement> -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>axistools-maven-plugin</artifactId>
+				<version>1.1</version>
+				<dependencies>
+					<!-- the following dependencies are required for axis tools 1.3 to work 
+						both with axis 1.1 & axis 1.4 -->
+					<dependency>
+						<groupId>org.apache.axis</groupId>
+						<artifactId>axis-jaxrpc</artifactId>
+						<version>1.4</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.axis</groupId>
+						<artifactId>axis-saaj</artifactId>
+						<version>1.4</version>
+					</dependency>
+					<dependency>
+						<groupId>axis</groupId>
+						<artifactId>axis-wsdl4j</artifactId>
+						<version>1.5.1</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+						<version>1.0.4</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>commons-discovery</groupId>
+						<artifactId>commons-discovery</artifactId>
+						<version>0.2</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>axis</groupId>
+						<artifactId>axis</artifactId>
+						<version>${axis.version}</version>
+						<exclusions>
+							<!-- exclude the following so that they won't conflict with dependencies 
+								declared above -->
+							<exclusion>
+								<groupId>axis</groupId>
+								<artifactId>axis-jaxrpc</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>axis</groupId>
+								<artifactId>axis-saaj</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>axis</groupId>
+								<artifactId>axis-wsdl4j</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>commons-logging</groupId>
+								<artifactId>commons-logging</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>commons-discovery</groupId>
+								<artifactId>commons-discovery</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<noWrapped>false</noWrapped>
+					<wrapArrays>false</wrapArrays>
+					<userEmitter>true</userEmitter>
+					<packageSpace>com.renewtek.service.client</packageSpace>
+					<sourceDirectory>src/main/resources</sourceDirectory>
+					<outputDirectory>${basedir}/target/client</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${javaVersion}</source>
+					<target>${javaVersion}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/client/*.java</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>oracle</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.oracle</groupId>
+					<artifactId>ojdbc14</artifactId>
+					<version>10.2.0.2.0</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+</project>

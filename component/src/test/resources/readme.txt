@@ -1,0 +1,2 @@
+To test with timezones modify the dbUnitContext.xml to use the exportWithTimeZone.xml for dataSet key value instead of export.xml
+the timezone can be defined through modifying timezone="Asia/Saigon" column in the Reference table of the dataset

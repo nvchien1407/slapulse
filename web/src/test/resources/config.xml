@@ -1,0 +1,11 @@
+<config host="${tomcat.server}" port="${http.port}"> 
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+    protocol="http" basepath="${webapp.name}" resultpath="${test.dir}/data" 
+    resultfile="web-tests-result.xml" summary="true" saveresponse="true">
+    <header name="Accept-Language" value="${user.language}"/>
+</config>

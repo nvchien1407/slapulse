@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="ignoreUnresolvablePlaceholders" value="true" />
+      <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+      <property name="ignoreResourceNotFound" value="true" />
+      <property name="locations">
+         <list>
+            <!-- Default properties for each adapter -->
+            <value>classpath:jdbc.properties</value>
+            <!--
+               Overridden properties file using "slapulse.core.properties" system property
+               refer: https://jira.renewtek.com/browse/RSLAP-18
+            -->
+            <value>${slapulse.core.properties}</value>
+         </list>
+      </property>
+   </bean>
+
+   <bean id="dbUnitDetail" class="java.util.HashMap">
+      <constructor-arg>
+         <map>
+            <entry>
+               <key>
+                  <value>driverClassName</value>
+               </key>
+               <value>${hibernate.connection.driver_class}</value>
+            </entry>
+            <entry>
+               <key>
+                  <value>url</value>
+               </key>
+               <value>${hibernate.connection.url}</value>
+            </entry>
+            <entry>
+               <key>
+                  <value>username</value>
+               </key>
+               <value>${hibernate.connection.username}</value>
+            </entry>
+            <entry>
+               <key>
+                  <value>password</value>
+               </key>
+               <value>${hibernate.connection.password}</value>
+            </entry>
+         </map>
+      </constructor-arg>
+    </bean>
+</beans>

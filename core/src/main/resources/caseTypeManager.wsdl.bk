@@ -1,0 +1,840 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="caseTypeManagerRemote" targetNamespace="http://ws.web.remote.kata.renewtek.com/" xmlns:ns1="http://service.core.kata.renewtek.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.web.remote.kata.renewtek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://kata-anz-release.dev.renewtek.com/kata/services/caseTypeManagerRemote?wsdl=CaseTypeManager.wsdl" namespace="http://service.core.kata.renewtek.com/">
+    </wsdl:import>
+  <wsdl:binding name="caseTypeManagerRemoteSoapBinding" type="ns1:CaseTypeManager">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findAllInboxesGetItemCountCurrentUser">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllInboxesGetItemCountCurrentUser">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllInboxesGetItemCountCurrentUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveCaseTypeVersionDocumentDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveCaseTypeVersionDocumentDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveCaseTypeVersionDocumentDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findStepsByRoleIds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findStepsByRoleIds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findStepsByRoleIdsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePickListItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removePickListItem">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removePickListItemResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFormAvailable">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="isFormAvailable">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="isFormAvailableResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveStepDocumentDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveStepDocumentDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveStepDocumentDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findStepsByRoleId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findStepsByRoleId">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findStepsByRoleIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePickList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removePickList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removePickListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteInbox">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteInbox">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteInboxResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInboxSortFieldsByStepIds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findInboxSortFieldsByStepIds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInboxSortFieldsByStepIdsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteAction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteActionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateForm">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="generateForm">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="generateFormResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStepsByCaseTypeVersionAndRole">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getStepsByCaseTypeVersionAndRole">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getStepsByCaseTypeVersionAndRoleResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePickListLink">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removePickListLink">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removePickListLinkResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveDocumentDefinitionsToRepository">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveDocumentDefinitionsToRepository">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveDocumentDefinitionsToRepositoryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateInboxFile">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="validateInboxFile">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validateInboxFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionsOfUser">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionsOfUser">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionsOfUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionDisplayName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionDisplayName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionDisplayNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="copyCaseType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="copyCaseType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="copyCaseTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMergedDocumentDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMergedDocumentDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMergedDocumentDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInboxById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findInboxById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInboxByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savePickList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="savePickList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="savePickListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findPickListByName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findPickListByName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findPickListByNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionDocGenDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionDocGenDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionDocGenDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUserCaseTypeVersionsForCreateCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findUserCaseTypeVersionsForCreateCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findUserCaseTypeVersionsForCreateCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activateCaseTypeVersionWithAutoConfig">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="activateCaseTypeVersionWithAutoConfig">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="activateCaseTypeVersionWithAutoConfigResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findPickListsByDataType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findPickListsByDataType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findPickListsByDataTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findSearchTermsPropertiesForCaseTypes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findSearchTermsPropertiesForCaseTypes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findSearchTermsPropertiesForCaseTypesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionByExternalVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionByExternalVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionByExternalVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllStepProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllStepProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllStepPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionsByRoleByLaunchStep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionsByRoleByLaunchStep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionsByRoleByLaunchStepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCaseTypeVersions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllCaseTypeVersions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllCaseTypeVersionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllActions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllActions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllActionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveStepProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveStepProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveStepPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createInbox">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createInbox">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createInboxResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNewCaseTypeVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createNewCaseTypeVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createNewCaseTypeVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveStepProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveStepProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveStepPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInboxSearchPropertiesByStepIds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findInboxSearchPropertiesByStepIds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInboxSearchPropertiesByStepIdsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllActiveCaseTypeVersions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllActiveCaseTypeVersions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllActiveCaseTypeVersionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCaseTypeVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="importCaseTypeVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importCaseTypeVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableStepDocumentDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAvailableStepDocumentDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAvailableStepDocumentDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importProcessDefinitionByWorkFlowName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="importProcessDefinitionByWorkFlowName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importProcessDefinitionByWorkFlowNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unAssignRoleForStep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="unAssignRoleForStep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unAssignRoleForStepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionByName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionByName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionByNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionsByUserAndDocDef">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionsByUserAndDocDef">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionsByUserAndDocDefResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePickListItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updatePickListItem">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePickListItemResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllActionsOfResponse">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllActionsOfResponse">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllActionsOfResponseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importInboxes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="importInboxes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importInboxesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="KataSystemRuntimeException">
+        <soap:fault name="KataSystemRuntimeException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllInboxes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllInboxes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllInboxesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInboxDisplayFieldsByStepIds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findInboxDisplayFieldsByStepIds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInboxDisplayFieldsByStepIdsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrUpdateAction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createOrUpdateAction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createOrUpdateActionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignRoleForStep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="assignRoleForStep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="assignRoleForStepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findStepById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findStepById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findStepByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activateCaseTypeVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="activateCaseTypeVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="activateCaseTypeVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importCaseTypeVersions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="importCaseTypeVersions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importCaseTypeVersionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="KataSystemRuntimeException">
+        <soap:fault name="KataSystemRuntimeException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuditableAuditEvents">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateAuditableAuditEvents">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateAuditableAuditEventsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPropertyByCaseTypeVersionInShallow">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllPropertyByCaseTypeVersionInShallow">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllPropertyByCaseTypeVersionInShallowResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseTypeVersionById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseTypeVersionById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseTypeVersionByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCaseTypeVersionProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteCaseTypeVersionProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteCaseTypeVersionPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCaseType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removeCaseType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removeCaseTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportCaseTypeVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="exportCaseTypeVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportCaseTypeVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImportedDocGenDefintions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getImportedDocGenDefintions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getImportedDocGenDefintionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInboxByName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findInboxByName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInboxByNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveCaseTypeVersionDocGenDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveCaseTypeVersionDocGenDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveCaseTypeVersionDocGenDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGeneratedForm">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteGeneratedForm">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteGeneratedFormResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAvailableCaseTypeVersionsInShallow">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAvailableCaseTypeVersionsInShallow">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAvailableCaseTypeVersionsInShallowResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuditableBusinessEvents">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateAuditableBusinessEvents">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateAuditableBusinessEventsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionDocGenDefinition">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionDocGenDefinition">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionDocGenDefinitionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImportedDocumentDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getImportedDocumentDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getImportedDocumentDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPermission">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllPermission">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllPermissionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePermission">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updatePermission">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePermissionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPickLists">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllPickLists">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllPickListsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findSteps">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findSteps">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findStepsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteStepProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteStepProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteStepPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDocumentDefinitionsFromCE">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllDocumentDefinitionsFromCE">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllDocumentDefinitionsFromCEResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllInboxesGetItemCount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllInboxesGetItemCount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllInboxesGetItemCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPickListItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createPickListItem">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createPickListItemResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPickList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPickList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPickListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuditableAuditEventsDeprecated">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateAuditableAuditEventsDeprecated">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateAuditableAuditEventsDeprecatedResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveStepDocGenDefinitions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveStepDocGenDefinitions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveStepDocGenDefinitionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveStepForms">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveStepForms">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveStepFormsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableProcessNames">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAvailableProcessNames">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAvailableProcessNamesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateExportCaseTypeVersionFile">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="validateExportCaseTypeVersionFile">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validateExportCaseTypeVersionFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="KataSystemRuntimeException">
+        <soap:fault name="KataSystemRuntimeException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseTypeVersionDocGenDefinitionProperty">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseTypeVersionDocGenDefinitionProperty">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseTypeVersionDocGenDefinitionPropertyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPropertyByCaseTypeVersionDeep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findAllPropertyByCaseTypeVersionDeep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllPropertyByCaseTypeVersionDeepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateFormCSSPath">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateFormCSSPath">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateFormCSSPathResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePropertyPickListLink">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removePropertyPickListLink">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removePropertyPickListLinkResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="caseTypeManagerRemote">
+    <wsdl:port binding="tns:caseTypeManagerRemoteSoapBinding" name="CaseTypeManagerRemotingImplPort">
+      <soap:address location="http://kata-anz-release.dev.renewtek.com/kata/services/caseTypeManagerRemote" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

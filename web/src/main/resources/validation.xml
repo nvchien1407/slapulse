@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+     <global>
+      <constant>
+        <constant-name>phone</constant-name>
+        <constant-value>^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>zip</constant-name>
+        <constant-value>^\d{5}\d*$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>currency</constant-name>
+        <constant-value>^\d{1,3}(,?\d{1,3})*\.?(\d{1,2})?$</constant-value>
+      </constant> 
+      <constant>
+        <constant-name>phoneno</constant-name>
+        <constant-value>^\(?(\d{1,8})\)?[-| ]?(\d{1,8})[-| ]?(\d{1,8})[-| ]?(\d{0,8})$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>mobileno</constant-name>
+        <constant-value>^\(?(\d{1,8})\)?[-| ]?(\d{1,8})[-| ]?(\d{1,8})[-| ]?(\d{0,8})$</constant-value>
+      </constant>
+   </global>
+   <formset>
+        <form name="fileUpload">
+            <field property="name" depends="required">
+                <arg0 key="uploadForm.name"/>
+            </field>
+            <!-- Client-side Javascript won't catch this in IE, but server-side will -->
+            <field property="file" depends="required">
+                <arg0 key="uploadForm.file"/>
+            </field>
+        </form>
+    </formset>
+
+  <formset>
+      <form name="calendarDate">
+              <field property="name"
+                     depends="required">
+                  <msg
+                    name="required"
+                    key="errors.required"/>
+
+                  <arg0 key="calendarDate.name"/>
+              </field>
+              <field property="description"
+                     depends="required">
+                  <msg
+                    name="required"
+                    key="errors.required"/>
+
+                  <arg0 key="calendarDate.description"/>
+              </field>
+      </form>
+      <form name="reference">
+              <field property="groupName"
+                     depends="maxlength">
+
+                  <arg0 key="reference.groupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="subGroupName"
+                     depends="required,maxlength">
+
+                  <arg0 key="reference.subGroupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="itemName"
+                     depends="required,maxlength">
+
+                  <arg0 key="reference.itemName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                  </var>
+              </field>
+              <field property="note"
+                     depends="maxlength">
+
+                  <arg0 key="reference.note"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                  </var>
+              </field>
+      </form>
+      <form name="serviceLevelAgreement">
+              <field property="name"
+                     depends="required">
+                  <msg
+                    name="required"
+                    key="errors.required"/>
+
+                  <arg0 key="serviceLevelAgreement.name"/>
+              </field>
+              <field property="TFormulaeDays"
+                     depends="intRange,integer">
+
+                  <arg0 key="serviceLevelAgreement.TFormulaeDays"/>
+                  <arg1
+                    key="${var:min}"
+                  />
+                  <arg2
+                    key="${var:max}"
+                  />
+                  <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                  </var>
+                  <var>
+                    <var-name>max</var-name>
+                    <var-value>365</var-value>
+                  </var>
+              </field>
+              <field property="calendar.groupName"
+                     depends="maxlength">
+
+                  <arg0 key="serviceLevelAgreement.calendar.groupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="calendar.subGroupName"
+                     depends="required,maxlength">
+
+                  <arg0 key="serviceLevelAgreement.calendar.subGroupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="calendar.itemName"
+                     depends="required,maxlength">
+
+                  <arg0 key="serviceLevelAgreement.calendar.itemName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                  </var>
+              </field>
+              <field property="calendar.note"
+                     depends="maxlength">
+
+                  <arg0 key="serviceLevelAgreement.calendar.note"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                  </var>
+              </field>
+              <field property="fixedTimeDeadline"
+                     depends="required,date">
+
+                  <arg0 key="serviceLevelAgreement.fixedTimeDeadline"/>
+                  <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>HH:mm</var-value>
+                  </var>
+              </field>
+              <field property="fixedTimeThreshold"
+                     depends="required,date">
+
+                  <arg0 key="serviceLevelAgreement.fixedTimeThreshold"/>
+                  <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>HH:mm</var-value>
+                  </var>
+              </field>
+      </form>
+      <form name="user">
+              <field property="username"
+                     depends="required">
+
+                  <arg0 key="user.username"/>
+              </field>
+              <field property="firstName"
+                     depends="required">
+
+                  <arg0 key="user.firstName"/>
+              </field>
+              <field property="lastName"
+                     depends="required">
+
+                  <arg0 key="user.lastName"/>
+              </field>
+              <field property="email"
+                     depends="required,email">
+
+                  <arg0 key="user.email"/>
+              </field>
+              <field property="phoneNumber"
+                     depends="mask">
+                  <msg
+                    name="mask"
+                    key="errors.phone"/>
+
+                  <arg0 key="user.phoneNumber"/>
+                  <var>
+                    <var-name>mask</var-name>
+                    <var-value>${phone}</var-value>
+                  </var>
+              </field>
+              <field property="passwordHint"
+                     depends="required">
+
+                  <arg0 key="user.passwordHint"/>
+              </field>
+      </form>
+      <form name="businessProcess">
+              <field property="description"
+                     depends="required">
+                  <msg
+                    name="required"
+                    key="errors.required"/>
+
+                  <arg0 key="businessProcess.description"/>
+              </field>
+              <field property="name.groupName"
+                     depends="maxlength">
+
+                  <arg0 key="businessProcess.name.groupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="name.subGroupName"
+                     depends="required,maxlength">
+
+                  <arg0 key="businessProcess.name.subGroupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="name.itemName"
+                     depends="required,maxlength">
+
+                  <arg0 key="businessProcess.name.itemName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                  </var>
+              </field>
+              <field property="name.note"
+                     depends="maxlength">
+
+                  <arg0 key="businessProcess.name.note"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                  </var>
+              </field>
+              <field property="type.groupName"
+                     depends="maxlength">
+
+                  <arg0 key="businessProcess.type.groupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="type.subGroupName"
+                     depends="required,maxlength">
+
+                  <arg0 key="businessProcess.type.subGroupName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                  </var>
+              </field>
+              <field property="type.itemName"
+                     depends="required,maxlength">
+
+                  <arg0 key="businessProcess.type.itemName"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>250</var-value>
+                  </var>
+              </field>
+              <field property="type.note"
+                     depends="maxlength">
+
+                  <arg0 key="businessProcess.type.note"/>
+                  <arg1
+                    key="${var:maxlength}"
+                  />
+                  <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                  </var>
+              </field>
+      </form>
+  </formset>
+</form-validation>

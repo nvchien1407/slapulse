@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                       http://www.springframework.org/schema/tx
+                       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                       http://www.springframework.org/schema/aop 
+                       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+   <!--
+       ********* DO NOT REMOVE THIS NOTICE **********
+       COPYRIGHT(c)2006 RENEWTEK PTY LTD
+       ********* DO NOT REMOVE THIS NOTICE **********
+   -->
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="ignoreUnresolvablePlaceholders" value="true" />
+      <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+      <property name="ignoreResourceNotFound" value="true" />
+      <property name="locations">
+         <list>
+            <!-- Default properties for each adapter -->
+            <value>classpath:application.properties</value>
+            <value>classpath:application-web.properties</value>
+            <value>classpath:application-slapulse.properties</value>
+            <!--
+               Overridden properties file using "slapulse.web.properties" system property
+               refer: https://jira.renewtek.com/browse/RSLAP-18
+            -->
+            <value>${slapulse.web.properties}</value>
+            <!-- Additional properties file - for example, UOB would like to store credentials separately -->
+            <value>${slapulse.web.properties}.2</value>
+         </list>
+      </property>
+   </bean>
+
+   <!-- JNDI DataSource for J2EE environments -->
+   <bean id="SLAPulseDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:comp/env/jdbc/SLAPulse" />
+      <property name="lookupOnStartup" value="false" />
+      <property name="cache" value="true" />
+      <property name="proxyInterface" value="javax.sql.DataSource" />
+   </bean> 
+
+   <!--  <bean id="SLAPulseDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true">
+      <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+      <property name="url" value="jdbc:oracle:thin:@192.168.100.166:1521:orcl"/>
+      <property name="username" value="sla_han"/>
+      <property name="password" value="filenetP8"/>
+   </bean> -->
+   
+   <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase" lazy-init="false">
+      <property name="dataSource" ref="${default-datasource-bean}" />
+      <property name="changeLog" value="classpath:db_changelog.xml" />
+      <property name="contexts" value="${liquibase.contexts}" />
+      <property name="defaultSchema" value="${hibernate.default_schema}" />
+   </bean>
+
+   <!-- receive JMS from Saigon -->
+   <bean id="jmsInitialiser" class="com.renewtek.util.LazyBeanInitializer">
+      <property name="enabled" value="${is.jms}" />
+      <property name="lazyLoadingBeanNames">
+         <list>
+            <value>jndiTemplate</value>
+            <value>connectionFactory</value>
+            <value>destination</value>
+            <value>jmsContainerSLAP</value>
+            <value>slaMessageListener</value>
+            <value>caseCreatedEventHandler</value>
+            <value>caseCompletedEventHandler</value>
+            <value>schedulerFactoryBean</value>
+            <value>schedulerFactory</value>
+         </list>
+      </property>
+   </bean>
+   <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate" lazy-init="true">
+      <property name="environment">
+         <props>
+            <prop key="java.naming.factory.initial">${search.worker.jndi.class}</prop>
+            <prop key="java.naming.provider.url">${search.worker.jndi.url}</prop>
+         </props>
+      </property>
+   </bean>
+   <bean id="connectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+      <property name="jndiTemplate" ref="jndiTemplate" />
+      <property name="jndiName" value="${search.worker.jms.connection_factory}" />
+      <property name="lookupOnStartup" value="${is.jms}" />
+      <property name="resourceRef" value="true" />
+      <property name="proxyInterface" value="javax.jms.ConnectionFactory" />
+   </bean>
+   <bean id="destination" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+      <property name="jndiTemplate" ref="jndiTemplate" />
+      <property name="jndiName" value="${search.worker.jms.queue}" />
+      <property name="lookupOnStartup" value="${is.jms}" />
+      <property name="resourceRef" value="true" />
+      <property name="proxyInterface" value="javax.jms.Topic" />
+   </bean>
+   <bean id="jmsContainerSLAP" class="com.renewtek.event.MessageListenerContainer" lazy-init="true">
+      <property name="connectionFactory" ref="connectionFactory" />
+      <property name="destination" ref="destination" />
+      <property name="messageListenerBean" value="slaMessageListener" />
+      <property name="enabled" value="${is.jms}" />
+      <property name="subscriptionDurable" value="${is.jms.durable}" />
+      <property name="durableSubscriptionName" value="slap" />
+   </bean>
+
+   <!-- Define new Handle/HanderListener SLA PULSE QUATZ SUPPORT -->
+   <bean id="propertyNameValue" class="java.util.HashMap">
+      <constructor-arg>
+         <map>
+            <entry key="START_TIME_PROPERTY_NAME" value="${sla.start.time.property.name}" />
+            <entry key="DEADLINE_TIME_PROPERTY_NAME" value="${sla.deadline.time.property.name}" />
+            <entry key="REMINDER_TIME_PROPERTY_NAME" value="${sla.reminder.time.property.name}" />
+            <entry key="STATUS_PROPERTY_NAME" value="${sla.status.time.property.name}" />
+            <entry key="NOTIFY_DEADLINE_APPROACHING_PROPERTY_NAME" value="${sla.notifyDeadlineApproaching.time.property.name}" />
+            <entry key="TRANSACTION_PROPERTY_NAME" value="${sla.transaction.property.name}" />
+            <entry key="SLA_ID_PROPERTY_NAME" value="${sla.id.property.name}" />
+         </map>
+      </constructor-arg>
+   </bean>
+
+   <bean id="updatePropsWebService" class="com.renewtek.event.jms.UpdatePropertiesWebService">
+      <property name="propertyNameValue" ref="propertyNameValue" />
+      <property name="slaUpdatePropertiesDAO" ref="${slaUpdatePropertiesDAO}" />
+      <property name="slaService" ref="slaService" />
+      <property name="businessProcessManager" ref="businessProcessManager" />
+      <property name="datetimeFormat" value="${sla.datetime.format}" />
+      <property name="allowSlaChange" value="${sla.allow.change}" />
+   </bean>
+
+   <bean id="jobDetailFactory" class="com.renewtek.event.jms.scheduling.JobDetailFactory">
+      <property name="jobClassMap">
+         <map>
+            <entry key="UPDATE_PROPS_WEB_SERVICES" value="updatePropsWebService" />
+         </map>
+      </property>
+   </bean>
+   <bean id="caseCreatedEventHandler" class="com.renewtek.event.jms.CaseCreatedEventHandler" lazy-init="true">
+      <property name="updatePropsService" ref="updatePropsWebService" />
+      <property name="jobDetailFactory" ref="jobDetailFactory" />
+      <property name="scheduleFactory" ref="schedulerFactory" />
+      <property name="businessProcessManager" ref="businessProcessManager" />
+      <property name="slaService" ref="slaService" />
+      <property name="datetimeFormat" value="${sla.datetime.format}" />
+   </bean>
+   <bean id="caseUpdatedEventHandler" class="com.renewtek.event.jms.CaseUpdatedEventHandler" lazy-init="true">
+      <property name="slaService" ref="slaService" />
+      <property name="caseCreatedEventHandler" ref="caseCreatedEventHandler" />
+      <property name="caseCompletedEventHandler" ref="caseCompletedEventHandler" />
+      <property name="allowSlaChange" value="${sla.allow.change}" />
+   </bean>
+   <bean id="caseCompletedEventHandler" class="com.renewtek.event.jms.CaseCompletedEventHandler" lazy-init="true">
+      <property name="slaService" ref="slaService" />
+      <property name="scheduleFactory" ref="schedulerFactory" />
+   </bean>
+
+   <bean id="slaMessageListener" class="com.renewtek.event.jms.SlaMessageListener" lazy-init="true">
+      <property name="propertyNameValue" ref="propertyNameValue" />
+      <property name="messageHandlerMap">
+         <map>
+            <entry key="CREATED" value-ref="caseCreatedEventHandler" />
+            <entry key="TERMINATED" value-ref="caseCompletedEventHandler" />
+            <entry key="UPDATED" value-ref="caseUpdatedEventHandler" />
+         </map>
+      </property>
+      <property name="allowStepSla" value="${sla.allow.step.sla}" />
+   </bean>
+
+<!-- 
+   <bean id="SLAPulseJDBCDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true">
+      <property name="driverClassName" value="${jobStore.connection.driver_class}"/>
+      <property name="url" value="${jobStore.connection.url}"/>
+      <property name="username" value="${jobStore.connection.username}"/>
+      <property name="password" value="${jobStore.connection.password}"/>
+   </bean>
+ -->
+
+   <bean id="schedulerFactoryBean" class="com.renewtek.event.jms.scheduling.SlaSchedulerFactoryBean" lazy-init="true">
+      <property name="enabled" value="${is.jms}" />
+      <property name="dataSourceBean" value="${default-datasource-bean}" />
+      <property name="quartzProperties">
+         <props>
+            <prop key="org.quartz.scheduler.instanceName">Quartz</prop>
+            <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+            <prop key="org.quartz.scheduler.rmi.export">false</prop>
+            <prop key="org.quartz.scheduler.rmi.proxy">false</prop>
+            <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+            <prop key="org.quartz.threadPool.threadCount">3</prop>
+            <prop key="org.quartz.threadPool.threadPriority">5</prop>
+            <prop key="org.quartz.jobStore.class">org.quartz.impl.jdbcjobstore.JobStoreTX</prop>
+            <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.StdJDBCDelegate</prop>
+            <prop key="org.quartz.jobStore.tablePrefix">${org.quartz.jobStore.tablePrefix}</prop>
+            <prop key="org.quartz.jobStore.isClustered">false</prop>
+            <prop key="org.quartz.jobStore.misfireThreshold">60000</prop>
+            <prop key="org.quartz.jobStore.selectWithLockSQL">SELECT * FROM {0}LOCKS UPDLOCK WHERE LOCK_NAME = ?</prop>
+         </props>
+      </property>
+      <property name="autoStartup" value="true" />
+      <property name="applicationContextSchedulerContextKey">
+         <value>applicationContext</value>
+      </property>
+   </bean>
+
+   <bean id="schedulerFactory" class="com.renewtek.event.jms.scheduling.ScheduleFactory" lazy-init="true"/>
+
+   <!-- send JMS back to Saigon -->
+   <bean id="peJmsTopic" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+      <property name="jndiTemplate" ref="jndiTemplate"></property>
+      <property name="jndiName" value="${jms.queue.send}"/>
+      <property name="lookupOnStartup" value="${is.jms.send}"/>
+      <property name="resourceRef" value="true"/>
+      <property name="proxyInterface" value="javax.jms.Queue"/>
+   </bean>
+   <bean id="peTopicSender" class="org.springframework.jms.core.JmsTemplate" lazy-init="true">
+      <property name="connectionFactory" ref="connectionFactory"></property>
+   </bean>
+   <bean id="slaUpdatePropertiesDAOJMS" class="com.renewtek.service.impl.SLAUpdatePropertiesJMS" lazy-init="true">
+      <property name="enabled" value="${is.jms.send}"></property>
+      <property name="jmsTemplate" ref="peTopicSender"></property>
+      <property name="topic" ref="peJmsTopic"/>
+      <property name="username" value="${kata.ws.account.username}"/>
+      <!--<property name="password" ref="kata.ws.account.password.decrypted"/>-->
+   </bean>
+
+   <tx:annotation-driven />
+
+   <bean id="hibernateFilter" class="com.renewtek.webapp.filter.OpenSessionInViewFilter">
+      <property name="sessionFactoryBeanName" value="sessionFactory"/>
+      <property name="transactionManager" ref="transactionManager"/>
+   </bean>
+
+</beans>

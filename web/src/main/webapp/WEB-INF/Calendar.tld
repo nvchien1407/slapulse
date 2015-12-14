@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+   <tlib-version>1.1</tlib-version>
+   <short-name>Calendar</short-name>
+
+   <description><![CDATA[Custom tag library for this application]]></description>
+
+   <tag>
+
+      <icon>    
+      </icon>
+      <name>constants</name>
+      <tag-class>com.renewtek.webapp.taglib.ConstantsTag</tag-class>
+      <tei-class>com.renewtek.webapp.taglib.ConstantsTei</tei-class>
+       <attribute>
+         <name>className</name>
+
+      </attribute>
+      <attribute>
+         <name>scope</name>
+
+      </attribute>
+      <attribute>
+         <name>var</name>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <icon>    
+      </icon>
+      <name>label</name>
+      <tag-class>com.renewtek.webapp.taglib.LabelTag</tag-class>
+      <attribute>
+         <name>key</name>
+         <required>true</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>colon</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>styleClass</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>errorClass</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>helpTip</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <icon>    
+      </icon>
+      <name>country</name>
+      <tag-class>com.renewtek.webapp.taglib.CountryTag</tag-class>
+      <attribute>
+         <name>name</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>prompt</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>default</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>toScope</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <icon>    
+      </icon>
+      <name>secure</name>
+      <tag-class>com.renewtek.webapp.taglib.SecureTag</tag-class>
+      <attribute>
+         <name>mode</name>
+         <required>false</required>
+
+           <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+
+</taglib>

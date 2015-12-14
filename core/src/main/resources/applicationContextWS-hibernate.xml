@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+   xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2011 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     <property name="ignoreUnresolvablePlaceholders" value="true" />
+     <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+     <property name="ignoreResourceNotFound" value="true" />
+     <property name="locations">
+        <list>
+           <value>classpath:sla-core.properties</value>
+			<!-- Allow sensitive information to be stored in a different file. This property can be overriden
+			     from the command line so that a customer can choose a different file to hold their encryption
+			     password. They can choose to secure the properties file with OS permissions -->
+            <value>${sms.encryption.properties:classpath:sms-encryption.properties}</value>
+            <value>${sms.encryption.properties}.sla</value>
+        </list>
+     </property>
+   </bean>
+
+   <bean id="pbePasswordEncoder" class="${password.encoder.decoder}">
+      <constructor-arg value="${sms.encryption.password}"/>
+   </bean>
+   <!--<bean name="authenticationInfo" class="com.renewtek.kata.core.security.model.AuthenticationInfo">
+      <constructor-arg index="0" value="${kata.ws.account.username}" />
+      <constructor-arg index="1" value="${kata.ws.account.password}" />
+      <constructor-arg index="2" ref="pbePasswordEncoder"/>
+   </bean>
+   <bean name="kata.ws.account.password.decrypted" factory-bean="authenticationInfo" factory-method="getDecryptedPassword" />-->
+   
+   <bean id="baseClient" class="com.renewtek.service.BaseWSClient">
+   	   <constructor-arg value="${kata.ws.account.username}"/>
+       <!--<constructor-arg ref="kata.ws.account.password.decrypted"/>-->
+       <constructor-arg value="${kata.ws.base.url}"/>
+       <constructor-arg value="${kata.ws.cache.manager}"/>
+   </bean>
+   
+   <bean id="slaUpdatePropertiesDAOWS" class="com.renewtek.service.impl.SLAUpdatePropertiesWS">
+	   <constructor-arg ref="baseClient"/>
+   </bean>
+   
+   <bean id="slaUpdatePropertiesWS" class="com.renewtek.service.impl.SLAUpdatePropertiesWS">
+      <constructor-arg ref="baseClient"/>
+   </bean>
+   
+   <!--<bean id="slaCaseTypeManagerDAO" class="com.renewtek.dao.ws.SLACaseTypeManagerWS">
+       <constructor-arg>
+          <bean class="com.renewtek.dao.ws.client.CaseTypeManagerClient">
+             <constructor-arg value="${kata.ws.account.username}"/>
+             <constructor-arg ref="kata.ws.account.password.decrypted"/>
+             <constructor-arg value="${kata.ws.base.url}"/>
+             <constructor-arg value="${kata.ws.cache.manager}"/>
+          </bean>
+       </constructor-arg>
+    </bean>-->
+</beans>

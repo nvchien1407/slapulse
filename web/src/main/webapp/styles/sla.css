@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {padding:0; margin:0; background:url(../images/left_main_bg_13.gif) repeat-y;}
+a, div, form, input, td {font-family:Arial, Helvetica, sans-serif; font-size:9pt;}
+a {color:#686868; text-decoration:underline;}
+a:hover {text-decoration:none;}
+
+.header {background:url(../images/header_bg_02.gif); height:71px; color:#686868;}
+.logo {float:left; padding:17px 0 0 22px;}
+.header_right {float:right; padding:30px 22px 0 0;}
+
+.left_content {min-width:200px; display:table-cell; background:url(../images/header_shadow_09.png) repeat-x; padding-top:25px;}
+.right_content { display:table-cell; padding:30px 20px 0 20px;width:100%;}
+.footer {color:#CCCCCC; font-size:8pt; padding:5px 0 5px 220px;}
+
+.clear {clear:both;}
+
+.category {padding-left:11px;}
+.category a {display:block; border-radius: 10px 0 0 10px; background:#bebebe; padding:12px 15px; width:160px; color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:10pt; margin-bottom:1px; cursor:pointer;}
+.category a:hover {background:#cbcbcb; color:#FFFFFF; text-decoration:none;}
+
+.category a.selected {background:#FFFFFF; color:#3e92bb;}
+
+.main_title {font-size:16pt; color:#3e92bb; margin-bottom:15px;}
+
+button, .button {background:url(../images/button_bg_14.gif); width:98px; height:26px; border:0; color:#3d3d3d; cursor:pointer; margin:10px 0;}

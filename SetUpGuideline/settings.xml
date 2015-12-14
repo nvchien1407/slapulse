@@ -1,0 +1,133 @@
+<settings xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<!-- pluginGroups | This is a list of additional group identifiers that 
+		will be searched when resolving plugins by their prefix, i.e. | when invoking 
+		a command line like "mvn prefix:goal". Maven will automatically add the group 
+		identifiers | "org.apache.maven.plugins" and "org.codehaus.mojo" if these 
+		are not already contained in the list. | -->
+	<!-- jboss.org config start -->
+
+<pluginGroups>
+	<pluginGroup>org.jboss.maven.plugins</pluginGroup>
+	<!-- jboss.org config end -->
+
+</pluginGroups>
+
+	<servers>
+		<server>
+			<id>sms-vietnam</id>
+			<username>renewtek</username>
+			<!--<password>Artifact0ry</password> -->
+			<password>BPMdev$123</password>
+		</server>
+
+		<server>
+			<id>renewtek</id>
+			<username>renewtek</username>
+			<!--<password>Artifact0ry</password> -->
+			<password>BPMdev$123</password>
+		</server>
+
+	</servers>
+
+	<!-- jboss.org config start -->
+<profiles>
+	<profile>
+		<id>jboss-public-repository</id>
+		<repositories>
+			<repository>
+				<id>jboss-public-repository-group</id>
+				<name>JBoss Public Maven Repository Group</name>
+				<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+				<layout>default</layout>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</snapshots>
+			</repository>
+		</repositories>
+		<pluginRepositories>
+			<pluginRepository>
+				<id>jboss-public-repository-group</id>
+				<name>JBoss Public Maven Repository Group</name>
+				<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+				<layout>default</layout>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</snapshots>
+			</pluginRepository>
+		</pluginRepositories>
+	</profile>
+
+	<profile>
+		<id>jboss-deprecated-repository</id>
+		<repositories>
+			<repository>
+				<id>jboss-deprecated-repository</id>
+				<name>JBoss Deprecated Maven Repository</name>
+				<url>https://repository.jboss.org/nexus/content/repositories/deprecated/</url>
+				<layout>default</layout>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>false</enabled>
+					<updatePolicy>never</updatePolicy>
+				</snapshots>
+			</repository>
+		</repositories>
+	</profile>
+	<!-- jboss.org config end -->
+
+	<profile>
+		<id>sonar</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<properties>
+			<!-- EXAMPLE FOR MYSQL jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8 -->
+			<sonar.jdbc.url>
+				jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
+			</sonar.jdbc.url>
+			<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver</sonar.jdbc.driverClassName>
+			<!--sonar.jdbc.driverClassName>oracle.jdbc.OracleDriver</sonar.jdbc.driverClassName -->
+			<sonar.jdbc.username>sonar</sonar.jdbc.username>
+			<sonar.jdbc.password>sonar</sonar.jdbc.password>
+
+			<!-- optional URL to server. Default value is http://localhost:9000 -->
+			<sonar.host.url>
+				http://localhost:8080/sonar
+			</sonar.host.url>
+		</properties>
+	</profile>
+
+</profiles>
+
+	<!-- activeProfiles -->
+	| List of profiles that are active for all builds.
+	|
+
+	<!-- jboss.org config start -->
+	<activeProfiles>
+		<activeProfile>jboss-public-repository</activeProfile>
+	</activeProfiles>
+	<!-- jboss.org config end -->
+
+	<!--<proxies> <proxy> <active>true</active> <protocol>http</protocol> <host>proxy1</host> 
+		<port>8080</port> <nonProxyHosts>localhost, 127.0.0.1</nonProxyHosts> </proxy> 
+		</proxies> <mirrors> <mirror> <id>renewtek-mirror</id> <name>Mirror everything 
+		through artifactory</name> <url>https://portal.renewtek.vn/artifactory/repo</url> 
+		<mirrorOf>*,!renewtek-vietnam</mirrorOf> </mirror> </mirrors> -->
+</settings> 

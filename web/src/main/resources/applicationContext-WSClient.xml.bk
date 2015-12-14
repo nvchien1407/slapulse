@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+   <bean id="clientPasswordCallback" class="com.renewtek.event.ws.ClientPasswordCallback" >
+      <property name="password" value="${kata.ws.password}"/>
+   </bean>
+
+   <jaxws:client id="caseManagerWsClient"
+      serviceClass="com.renewtek.kata.core.service.CaseManager"
+      address="${kata.case.manager.address}">
+
+      <jaxws:outInterceptors>
+         <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+            <constructor-arg>
+               <map>
+                  <entry key="action" value="UsernameToken" />
+                  <entry key="user" value="${kata.ws.username}" />
+                  <entry key="passwordType" value="PasswordText" />
+                  <entry key="passwordCallbackRef">
+                     <ref bean="clientPasswordCallback" />
+                  </entry>
+               </map>
+            </constructor-arg>
+         </bean>
+      </jaxws:outInterceptors>
+   </jaxws:client>
+   
+</beans>
+
+

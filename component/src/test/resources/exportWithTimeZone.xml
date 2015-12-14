@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <reference id="1" groupname="[NULL]" hashcodevalue="[NULL]" itemname="Victoria" note="[NULL]" subgroupname="Calendar" timezone="Asia/Saigon"/>
+  <reference id="3" hashcodevalue="1039285746" itemname="NewBusiness" note="" subgroupname="BusinessProcessName"/>
+  <reference id="4" hashcodevalue="569516530" itemname="Motor" note="" subgroupname="BusinessProcessType"/>
+  <reference id="5" hashcodevalue="1623351490" itemname="HouseHold" note="" subgroupname="BusinessProcessType"/>
+  <reference id="6" hashcodevalue="489954612" itemname="Extended" note="" subgroupname="BusinessProcessType"/>
+  <reference id="7" hashcodevalue="670705658" itemname="DailyMovieBook" note="" subgroupname="BusinessProcessName"/>
+  <reference id="8" hashcodevalue="1125401364" itemname="DEFAULT" note="" subgroupname="BusinessProcessType"/>
+  <reference id="9" hashcodevalue="638" itemname="NSW" subgroupname="Calendar" timezone="Asia/Saigon"/>
+  <reference id="10" itemname="SpanDayCal" subgroupname="Calendar" timezone="Asia/Saigon"/>
+  <reference id="11" hashcodevalue="1688233120" itemname="NCD" note="" subgroupname="BusinessProcessName"/>
+  <reference id="12" hashcodevalue="537927696" itemname="FixedDeadLineSpan" note="" subgroupname="BusinessProcessName"/>
+  <reference id="13" hashcodevalue="76153994" itemname="Claim" note="" subgroupname="BusinessProcessName"/>
+  <reference id="14" hashcodevalue="2123136652" itemname="Staff" note="" subgroupname="BusinessProcessName"/>
+  <reference id="15" hashcodevalue="1064714102" itemname="Renewal" note="" subgroupname="BusinessProcessName"/>
+  <reference id="16" hashcodevalue="1283607682" itemname="DurationBusinessSpan" note="" subgroupname="BusinessProcessName"/>
+  <reference id="17" hashcodevalue="107349606" itemname="Notify" note="" subgroupname="BusinessProcessType"/>
+  <reference id="18" hashcodevalue="5695498530" itemname="Motor-CutOff" note="" subgroupname="BusinessProcessType"/>
+  <reference id="19" hashcodevalue="1622351490" itemname="HouseHold-CutOff" note="" subgroupname="BusinessProcessType"/>
+  <reference id="20" hashcodevalue="489964512" itemname="Extended-CutOff" note="" subgroupname="BusinessProcessType"/>
+  <reference id="21" hashcodevalue="103955746" itemname="Claim-CutOff" note="" subgroupname="BusinessProcessName"/>
+  <reference id="22" hashcodevalue="103925446" itemname="Staff-CutOff" note="" subgroupname="BusinessProcessName"/>
+  <reference id="23" hashcodevalue="1039232746" itemname="Renewal-CutOff" note="" subgroupname="BusinessProcessName"/>
+  
+  <servicelevelagreement id="1" tformulaedays="1" deadlinetype="End Of Business" durationhours="[NULL]" durationminutes="[NULL]" durationtype="T-Formulae" fixedtimedaystoroll="[NULL]" fixedtimedeadline="[NULL]" fixedtimethreshold="[NULL]" includespecialdays="Yes" name="T-Formulae 1" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="[NULL]" pausethresholdminutes="[NULL]" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="2" tformulaedays="3" deadlinetype="End Of Day" durationtype="T-Formulae" includespecialdays="No" name="T-Formulae 3" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="8" pausethresholdminutes="0" enablecutofftime="0" stopslawhenpaused="1" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="3" tformulaedays="35" deadlinetype="End Of Business" durationtype="T-Formulae" includespecialdays="No" name="T Formulae 35" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="4" tformulaedays="2" deadlinetype="Same Time" durationtype="T-Formulae" includespecialdays="No" name="DayBasedSameDayTest" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="5" tformulaedays="1" deadlinetype="End Of Business" durationtype="T-Formulae" includespecialdays="Yes" name="T-Formular-Spanning" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="6" tformulaedays="2" deadlinetype="End Of Day" durationtype="T-Formulae" includespecialdays="No" name="T-Formular-Spanning2" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="7" tformulaedays="2" deadlinetype="Same Time" durationtype="T-Formulae" includespecialdays="Yes" name="T-Formular-SpanningSameTime" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="8" deadlinetype="Fixed Time" durationtype="Fixed Deadline" fixedtimedaystoroll="1" fixedtimedeadline="1970-01-01 17:00:00.0" fixedtimethreshold="1970-01-01 15:30:00.0" includespecialdays="No" name="Deadline" notificationthreshold="7200000" notificationthresholdDays="0" notificationthresholdHours="2" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="0" pausethresholdminutes="0" enablecutofftime="1" stopslawhenpaused="1" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="9" deadlinetype="Fixed Time" durationtype="Fixed Deadline" fixedtimedaystoroll="1" fixedtimedeadline="1970-01-01 17:30:00.0" fixedtimethreshold="1970-01-01 15:30:00.0" includespecialdays="No" name="FixedTimeSpanning" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="10" deadlinetype="Actual Time" durationhours="20" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Pulse 2+1/2" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="9"/>
+  <servicelevelagreement id="11" deadlinetype="Actual Time" durationhours="0" durationminutes="10" durationtype="Duration" includespecialdays="No" name="Duration B" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="1"/>
+  <servicelevelagreement id="12" deadlinetype="Actual Time" durationhours="24" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Duration A" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="1"/>
+  <servicelevelagreement id="13" deadlinetype="Actual Time" durationhours="26" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Duration C" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="1"/>
+  <servicelevelagreement id="14" deadlinetype="Actual Time" durationhours="20" durationminutes="0" durationtype="Duration" includespecialdays="No" name="DurationSpan" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="15" deadlinetype="Actual Time" durationhours="24" durationminutes="0" durationtype="Duration" includespecialdays="No" name="DurationSpan24H" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="10"/>
+  <servicelevelagreement id="16" deadlinetype="Actual Time" durationhours="0" durationminutes="10" durationtype="Duration" includespecialdays="No" name="Duration10MinutesSpan" notifydeadlineapproaching="0" enablecutofftime="0" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="10"/>
+  <servicelevelagreement id="48" deadlinetype="Actual Time" durationhours="20" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Claim Motor" notificationthreshold="15000000" notificationthresholdDays="0" notificationthresholdHours="4" notificationthresholdMinutes="10" notifydeadlineapproaching="1" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="9"/>
+  <servicelevelagreement id="49" deadlinetype="Actual Time" durationhours="0" durationminutes="20" durationtype="Duration" includespecialdays="No" name="TestDurationSpanNotify" notificationthreshold="600000" notificationthresholdDays="0" notificationthresholdHours="0" notificationthresholdMinutes="10" notifydeadlineapproaching="1" enablecutofftime="0" stopslawhenpaused="0" worktime="Working Hours" calendarid="10"/>
+  <servicelevelagreement id="60" tformulaedays="1" deadlinetype="End Of Business" durationhours="[NULL]" durationminutes="[NULL]" durationtype="T-Formulae" fixedtimedaystoroll="1" fixedtimedeadline="[NULL]" fixedtimethreshold="1970-01-01 16:00:00.0" includespecialdays="Yes" name="T-Formulae 1-CutOff" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="[NULL]" pausethresholdminutes="[NULL]" enablecutofftime="1" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="61" tformulaedays="1" deadlinetype="End Of Business" durationhours="[NULL]" durationminutes="[NULL]" durationtype="T-Formulae" fixedtimedaystoroll="1" fixedtimedeadline="[NULL]" fixedtimethreshold="1970-01-01 16:00:00.0" includespecialdays="Yes" name="T-Formulae 1-CutOff" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="[NULL]" pausethresholdminutes="[NULL]" enablecutofftime="1" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="62" tformulaedays="1" deadlinetype="End Of Business" durationhours="[NULL]" durationminutes="[NULL]" durationtype="T-Formulae" fixedtimedaystoroll="1" fixedtimedeadline="[NULL]" fixedtimethreshold="1970-01-01 16:00:00.0" includespecialdays="Yes" name="T-Formulae 1-CutOff" notificationthreshold="28800000" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" pausethresholdhours="[NULL]" pausethresholdminutes="[NULL]" enablecutofftime="1" stopslawhenpaused="0" worktime="Working Hours" calendarid="1"/>
+  <servicelevelagreement id="63" deadlinetype="Actual Time" durationhours="20" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Pulse 2+1/2-CutOff" notificationthreshold="28800000" fixedtimedaystoroll="1" fixedtimethreshold="1970-01-01 16:00:00.0" notificationthresholdDays="0" notificationthresholdHours="8" notificationthresholdMinutes="0" notifydeadlineapproaching="1" enablecutofftime="1" stopslawhenpaused="0" worktime="Working Hours" calendarid="9"/>
+  <servicelevelagreement id="64" deadlinetype="Actual Time" durationhours="0" durationminutes="10" durationtype="Duration" includespecialdays="No" name="Duration B-CutOff" notifydeadlineapproaching="0" fixedtimedaystoroll="1" fixedtimethreshold="1970-01-01 16:00:00.0" enablecutofftime="1" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="1"/>
+  <servicelevelagreement id="65" deadlinetype="Actual Time" durationhours="24" durationminutes="0" durationtype="Duration" includespecialdays="No" name="Duration A-CutOff" notifydeadlineapproaching="0" fixedtimedaystoroll="1" fixedtimethreshold="1970-01-01 16:00:00.0" enablecutofftime="1" stopslawhenpaused="0" worktime="24 Hour Clock" calendarid="1"/>
+  
+  <businessprocess id="1" description="" servicelevelagreementid="1" typeid="4" nameId="3"/>
+  <businessprocess id="2" description="" servicelevelagreementid="2" typeid="5" nameId="3"/>
+  <businessprocess id="3" description="" servicelevelagreementid="3" typeid="6" nameId="3"/>
+  <businessprocess id="4" description="" servicelevelagreementid="4" typeid="8" nameId="7"/>
+  <businessprocess id="5" description="" servicelevelagreementid="5" typeid="6" nameId="7"/>
+  <businessprocess id="6" description="" servicelevelagreementid="6" typeid="4" nameId="7"/>
+  <businessprocess id="7" description="" servicelevelagreementid="7" typeid="5" nameId="7"/>
+  <businessprocess id="8" description="" servicelevelagreementid="8" typeid="8" nameId="11"/>
+  <businessprocess id="9" description="" servicelevelagreementid="9" typeid="8" nameId="12"/>
+  <businessprocess id="10" description="" servicelevelagreementid="10" typeid="8" nameid="13"/>
+  <businessprocess id="11" description="" servicelevelagreementid="11" typeid="8" nameid="14"/>
+  <businessprocess id="12" description="" servicelevelagreementid="12" typeid="8" nameid="15"/>
+  <businessprocess id="13" description="" servicelevelagreementid="13" typeid="5" nameid="13"/>
+  <businessprocess id="14" description="" servicelevelagreementid="14" typeid="8" nameid="16"/>
+  <businessprocess id="15" description="" servicelevelagreementid="15" typeid="6" nameid="16"/>
+  <businessprocess id="16" description="" servicelevelagreementid="16" typeid="4" nameid="16"/>
+  <businessprocess id="42" description="" servicelevelagreementid="48" typeid="4" nameid="13"/>
+  <businessprocess id="43" description="" servicelevelagreementid="49" typeid="17" nameid="16"/>
+  <businessprocess id="60" description="" servicelevelagreementid="60" typeid="18" nameid="3"/>
+  <businessprocess id="61" description="" servicelevelagreementid="61" typeid="19" nameid="3"/>
+  <businessprocess id="62" description="" servicelevelagreementid="62" typeid="20" nameid="3"/>
+  <businessprocess id="63" description="" servicelevelagreementid="63" typeid="8" nameid="21"/>
+  <businessprocess id="64" description="" servicelevelagreementid="64" typeid="8" nameid="22"/>
+  <businessprocess id="65" description="" servicelevelagreementid="65" typeid="8" nameid="23"/>
+  
+  <defaultday id="1" defaultdayflag="1"  nonworkingday="0" regionid="1"/>
+  <defaultday id="2" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="3" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="4" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="5" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="6" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="7" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="8" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="9" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="10" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="11" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="12" defaultdayflag="0"  nonworkingday="0" regionid="1"/>
+  <defaultday id="13" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="14" defaultdayflag="0"  nonworkingday="1" regionid="1"/>
+  <defaultday id="15" defaultdayflag="1"  nonworkingday="0" regionid="9"/>
+  <defaultday id="16" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="17" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="18" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="19" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="20" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="21" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="22" defaultdayflag="0"  nonworkingday="1" regionid="9"/>
+  <defaultday id="23" defaultdayflag="1"  nonworkingday="0" regionid="10"/>
+  <defaultday id="24" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="25" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="26" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="27" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="28" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="29" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="30" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="31" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="32" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="33" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="34" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="35" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="36" defaultdayflag="0"  nonworkingday="1" regionid="10"/>
+  <defaultday id="37" defaultdayflag="0"  nonworkingday="0" regionid="10"/>
+  <defaultday id="38" defaultdayflag="0"  nonworkingday="1" regionid="9"/>
+  <defaultday id="39" defaultdayflag="0"  nonworkingday="1" regionid="9"/>
+  <defaultday id="40" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="41" defaultdayflag="0"  nonworkingday="0" regionid="9"/>
+  <defaultday id="43" defaultdayflag="0"  nonworkingday="1" regionid="9"/>
+  <calendardate calendardateid="9" dateinfo="2005-12-23 00:00:00.0" description="Christmas Eve" name="Christmas Eve"/>
+  <calendardate calendardateid="10" dateinfo="2005-12-26 00:00:00.0" description="Booking Day" name="Booking Day"/>
+  <calendardate calendardateid="11" dateinfo="2005-12-27 00:00:00.0" description="Christmas Day Holiday" name="Christmas Day Holiday"/>
+  <calendardate calendardateid="12" dateinfo="2005-12-28 00:00:00.0" description="Christmas Company Holiday" name="Christmas Company Holiday"/>
+  <calendardate calendardateid="13" dateinfo="2006-01-02 00:00:00.0" description="New Years Holiday" name="New Years Holiday"/>
+  <calendardate calendardateid="14" dateinfo="2006-01-26 00:00:00.0" description="Australia Day" name="Australia Day"/>
+  <calendardate calendardateid="31" dateinfo="2009-11-06 00:00:00.0" description="holidayOf6" name="holidayOf6"/>
+  <calendardate calendardateid="32" dateinfo="2009-11-17 00:00:00.0" description="DayOf17" name="DayOf17"/>
+  <calendardate calendardateid="33" dateinfo="2009-11-23 00:00:00.0" description="novemberDay" name="novemberDay"/>
+  <calendardate calendardateid="34" dateinfo="2009-12-07 00:00:00.0" description="lessWorkHours" name="lessWorkHours"/>
+  <calendardate calendardateid="35" dateinfo="2009-12-18 00:00:00.0" description="teddyDay" name="teddyDay"/>
+  <calendardate calendardateid="36" dateinfo="2009-12-21 00:00:00.0" description="hoilday21" name="hoilday21"/>
+  <calendardate calendardateid="37" dateinfo="2009-12-22 00:00:00.0" description="lessHourAfterHoliday" name="lessHourAfterHoliday"/>
+  <calendardate calendardateid="38" dateinfo="2005-12-26 00:00:00.0" description="Christmas Day Hoilday" name="Christmas Day Hoilday"/>
+  <calendardate calendardateid="39" dateinfo="2005-12-27 00:00:00.0" description="Boxing Day" name="Boxing Day"/>
+  <calendardate calendardateid="40" dateinfo="2005-12-28 00:00:00.0" description="Christmas Half Day" name="Christmas Half Day"/>
+  <calendardate calendardateid="41" dateinfo="2005-12-29 00:00:00.0" description="Company Half Day" name="Company Half Day"/>
+  <calendardate calendardateid="43" dateinfo="2010-08-07 00:00:00.0" description="test" name="test"/>
+  <defaultweekday defaultweekdayid="2" day="Monday"/>
+  <defaultweekday defaultweekdayid="3" day="Tuesday"/>
+  <defaultweekday defaultweekdayid="4" day="Wednesday"/>
+  <defaultweekday defaultweekdayid="5" day="Thursday"/>
+  <defaultweekday defaultweekdayid="6" day="Friday"/>
+  <defaultweekday defaultweekdayid="7" day="Saturday"/>
+  <defaultweekday defaultweekdayid="8" day="Sunday"/>
+  <defaultweekday defaultweekdayid="16" day="Monday"/>
+  <defaultweekday defaultweekdayid="17" day="Tuesday"/>
+  <defaultweekday defaultweekdayid="18" day="Wednesday"/>
+  <defaultweekday defaultweekdayid="19" day="Thursday"/>
+  <defaultweekday defaultweekdayid="20" day="Friday"/>
+  <defaultweekday defaultweekdayid="21" day="Saturday"/>
+  <defaultweekday defaultweekdayid="22" day="Sunday"/>
+  <defaultweekday defaultweekdayid="24" day="Monday"/>
+  <defaultweekday defaultweekdayid="25" day="Tuesday"/>
+  <defaultweekday defaultweekdayid="26" day="Wednesday"/>
+  <defaultweekday defaultweekdayid="27" day="Thursday"/>
+  <defaultweekday defaultweekdayid="28" day="Friday"/>
+  <defaultweekday defaultweekdayid="29" day="Saturday"/>
+  <defaultweekday defaultweekdayid="30" day="Sunday"/>
+  <role/>
+  <sequence_list name="Reference" next_value="18"/>
+  <sequence_list name="DefaultDay" next_value="44"/>
+  <sequence_list name="WorkHourRange" next_value="59"/>
+  <sequence_list name="businessprocess" next_value="44"/>
+  <sequence_list name="ServiceLevelAgreement" next_value="50"/>
+  <sequence_list name="DefaultWeekDay" next_value="31"/>
+  <sequence_list name="CalendarDate" next_value="44"/>
+  <user_role/>
+  <workhourrange id="1" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="2"/>
+  <workhourrange id="2" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="3"/>
+  <workhourrange id="3" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="4"/>
+  <workhourrange id="4" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="5"/>
+  <workhourrange id="5" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="6"/>
+  <workhourrange id="6" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 13:00:00.0" dayid="9"/>
+  <workhourrange id="9" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 13:00:00.0" dayid="12"/>
+  <workhourrange id="12" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="16"/>
+  <workhourrange id="13" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="17"/>
+  <workhourrange id="14" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="18"/>
+  <workhourrange id="15" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="19"/>
+  <workhourrange id="16" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 17:00:00.0" dayid="20"/>
+  <workhourrange id="17" fromtime="1970-01-01 14:00:00.0" totime="1970-01-01 09:00:00.0" dayid="24"/>
+  <workhourrange id="18" fromtime="1970-01-01 14:00:00.0" totime="1970-01-01 09:00:00.0" dayid="25"/>
+  <workhourrange id="19" fromtime="1970-01-01 14:00:00.0" totime="1970-01-01 09:00:00.0" dayid="26"/>
+  <workhourrange id="20" fromtime="1970-01-01 10:00:00.0" totime="1970-01-01 18:00:00.0" dayid="27"/>
+  <workhourrange id="21" fromtime="1970-01-01 19:00:00.0" totime="1970-01-01 09:00:00.0" dayid="28"/>
+  <workhourrange id="25" fromtime="1970-01-01 15:30:00.0" totime="1970-01-01 07:00:00.0" dayid="34"/>
+  <workhourrange id="26" fromtime="1970-01-01 20:30:00.0" totime="1970-01-01 06:00:00.0" dayid="35"/>
+  <workhourrange id="28" fromtime="1970-01-01 18:30:00.0" totime="1970-01-01 07:00:00.0" dayid="37"/>
+  <workhourrange id="31" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 13:00:00.0" dayid="40"/>
+  <workhourrange id="32" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 13:00:00.0" dayid="41"/>
+  <workhourrange id="33" fromtime="1970-01-01 09:00:00.0" totime="1970-01-01 13:00:00.0" dayid="21"/>
+</dataset>

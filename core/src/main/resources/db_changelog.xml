@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+   <changeSet author="khanh (generated)" id="1309490554581-1">
+      <createTable tableName="appuser">
+         <column name="username" type="VARCHAR(20)">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__appuser__7E6CC920" />
+         </column>
+         <column name="password" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column name="confirmPassword" type="VARCHAR(255)" />
+         <column name="first_name" type="VARCHAR(50)">
+            <constraints nullable="false" />
+         </column>
+         <column name="last_name" type="VARCHAR(50)">
+            <constraints nullable="false" />
+         </column>
+         <column name="phone_number" type="VARCHAR(50)" />
+         <column name="email" type="VARCHAR(50)">
+            <constraints nullable="false" />
+         </column>
+         <column name="website" type="VARCHAR(255)" />
+         <column name="password_hint" type="VARCHAR(255)" />
+         <column name="version" type="java.sql.Types.INTEGER" />
+         <column name="enabled" type="java.sql.Types.BOOLEAN" />
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-2">
+      <createTable tableName="businessprocess">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__businessprocess__0CBAE877" />
+         </column>
+         <column name="description" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+         <column name="servicelevelagreementid" type="java.sql.Types.INTEGER" />
+         <column name="nameid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" />
+         </column>
+         <column name="typeid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-3">
+      <createTable tableName="calendardate">
+         <column name="calendardateid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__calendardate__08EA5793" />
+         </column>
+         <column name="dateinfo" type="java.sql.Types.TIMESTAMP">
+            <constraints nullable="false" />
+         </column>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+         <column name="description" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-4">
+      <createTable tableName="defaultday">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__defaultday__0AD2A005" />
+         </column>
+         <column name="nonworkingday" type="java.sql.Types.BOOLEAN" />
+         <column name="defaultdayflag" type="java.sql.Types.BOOLEAN">
+            <constraints nullable="false" />
+         </column>
+         <column name="regionid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-5">
+      <createTable tableName="defaultweekday">
+         <column name="defaultweekdayid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__defaultweekday__0519C6AF" />
+         </column>
+         <column name="day" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-6">
+      <createTable tableName="reference">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__reference__7C8480AE" />
+         </column>
+         <column name="groupname" type="VARCHAR(100)" />
+         <column name="subgroupname" type="VARCHAR(100)" />
+         <column name="itemname" type="VARCHAR(250)" />
+         <column name="note" type="VARCHAR(255)" />
+         <column name="hashcodevalue" type="java.sql.Types.INTEGER" />
+         <column name="timezone" type="VARCHAR(50)" />
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-7">
+      <createTable tableName="role">
+         <column name="name" type="VARCHAR(20)">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__role__00551192" />
+         </column>
+         <column name="description" type="VARCHAR(255)" />
+         <column name="version" type="java.sql.Types.INTEGER" />
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-8">
+      <createTable tableName="sequence_list">
+         <column name="name" type="VARCHAR(255)" />
+         <column name="next_value" type="java.sql.Types.INTEGER" />
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-9">
+      <createTable tableName="servicelevelagreement">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__ServiceLevelAgre__0EA330E9" />
+         </column>
+         <column name="name" type="VARCHAR(100)">
+            <constraints nullable="false" />
+         </column>
+         <column name="durationtype" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+         <column name="tformulaedays" type="java.sql.Types.INTEGER" />
+         <column name="durationhours" type="java.sql.Types.INTEGER" />
+         <column name="durationminutes" type="java.sql.Types.INTEGER" />
+         <column name="deadlinetype" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+         <column name="worktime" type="VARCHAR(255)">
+            <constraints nullable="false" />
+         </column>
+         <column name="pausethresholdhours" type="java.sql.Types.INTEGER" />
+         <column name="pausethresholdminutes" type="java.sql.Types.INTEGER" />
+         <column name="enablecutofftime" type="java.sql.Types.BOOLEAN">
+            <constraints nullable="false" />
+         </column>
+         <column name="stopslawhenpaused" type="java.sql.Types.BOOLEAN">
+            <constraints nullable="false" />
+         </column>
+         <column name="includespecialdays" type="VARCHAR(255)" />
+         <column name="notifydeadlineapproaching" type="java.sql.Types.BOOLEAN" />
+         <column name="notificationthreshold" type="java.sql.Types.BIGINT" />
+         <column name="notificationthresholddays" type="java.sql.Types.INTEGER" />
+         <column name="notificationthresholdhours" type="java.sql.Types.INTEGER" />
+         <column name="notificationthresholdminutes" type="java.sql.Types.INTEGER" />
+         <column name="fixedtimedeadline" type="java.sql.Types.TIMESTAMP" />
+         <column name="fixedtimethreshold" type="java.sql.Types.TIMESTAMP" />
+         <column name="fixedtimedaystoroll" type="java.sql.Types.INTEGER" />
+         <column name="calendarid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-10">
+      <createTable tableName="user_cookie">
+         <column autoIncrement="true" name="id" type="java.sql.Types.BIGINT">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__user_cookie__023D5A04" />
+         </column>
+         <column name="username" type="VARCHAR(30)">
+            <constraints nullable="false" />
+         </column>
+         <column name="cookie_id" type="VARCHAR(100)">
+            <constraints nullable="false" />
+         </column>
+         <column name="date_created" type="java.sql.Types.TIMESTAMP">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-11">
+      <createTable tableName="user_role">
+         <column name="appuser_username" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column name="roles_name" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column name="role_name" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column name="users_username" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-12">
+      <createTable tableName="workhourrange">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"
+               primaryKeyName="PK__workhourrange__07020F21" />
+         </column>
+         <column name="fromtime" type="java.sql.Types.TIMESTAMP" />
+         <column name="totime" type="java.sql.Types.TIMESTAMP" />
+         <column name="startminute" type="VARCHAR(255)" />
+         <column name="starthour" type="VARCHAR(255)" />
+         <column name="endminute" type="VARCHAR(255)" />
+         <column name="endhour" type="VARCHAR(255)" />
+         <column name="dayid" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-13">
+      <addPrimaryKey columnNames="role_name, users_username"
+         constraintName="PK__user_role__108B795B"
+         tableName="user_role" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-14">
+      <addForeignKeyConstraint baseColumnNames="nameid"
+         baseTableName="businessprocess"
+         constraintName="FKA290766F908CE9D8" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="reference"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-15">
+      <addForeignKeyConstraint baseColumnNames="servicelevelagreementid"
+         baseTableName="businessprocess"
+         constraintName="FKA290766F66869F78" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="servicelevelagreement"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-16">
+      <addForeignKeyConstraint baseColumnNames="typeid"
+         baseTableName="businessprocess"
+         constraintName="FKA290766F9C1D8EC7" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="reference"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-17">
+      <addForeignKeyConstraint baseColumnNames="calendardateid"
+         baseTableName="calendardate"
+         constraintName="FKF4BEE42C10985C6D" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="defaultday"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-18">
+      <addForeignKeyConstraint baseColumnNames="regionid"
+         baseTableName="defaultday"
+         constraintName="FK9F44DDBBA6282001" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="reference"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-19">
+      <addForeignKeyConstraint baseColumnNames="defaultweekdayid"
+         baseTableName="defaultweekday"
+         constraintName="FK84DB29A754F17388" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="defaultday"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-20">
+      <addForeignKeyConstraint baseColumnNames="calendarid"
+         baseTableName="servicelevelagreement"
+         constraintName="FKA0720CDBE8DB09CB" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="reference"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-21">
+      <addForeignKeyConstraint baseColumnNames="appuser_username"
+         baseTableName="user_role"
+         constraintName="FK143BF46A30F4C0D" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="username" referencedTableName="appuser"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-22">
+      <addForeignKeyConstraint baseColumnNames="role_name"
+         baseTableName="user_role"
+         constraintName="FK143BF46A8A99C723" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="name" referencedTableName="role"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-23">
+      <addForeignKeyConstraint baseColumnNames="roles_name"
+         baseTableName="user_role"
+         constraintName="FK143BF46A4758D3C" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="name" referencedTableName="role"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-24">
+      <addForeignKeyConstraint baseColumnNames="users_username"
+         baseTableName="user_role"
+         constraintName="FK143BF46ADF4A1AF1" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="username" referencedTableName="appuser"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="khanh (generated)" id="1309490554581-25">
+      <addForeignKeyConstraint baseColumnNames="dayid"
+         baseTableName="workhourrange"
+         constraintName="FK7F6C4D88E35C981D" deferrable="false"
+         initiallyDeferred="false"
+         referencedColumnNames="id" referencedTableName="defaultday"
+         referencesUniqueColumn="false" />
+   </changeSet>
+   <changeSet author="camhoang (generated)" id="1309490554581-26">
+      <preConditions onFail="MARK_RAN">
+         <not>
+            <dbms type="oracle"/>
+         </not>
+      </preConditions>
+      <addColumn tableName="servicelevelagreement">
+         <column name="notifyDeadlineApproachingForwarding" type="java.sql.Types.BOOLEAN"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="jerry.shea" id="20120322-1400">
+      <validCheckSum>3:d41d8cd98f00b204e9800998ecf8427e</validCheckSum>
+   </changeSet>
+   <changeSet author="camhoang" id="20120405-1605">
+      <preConditions onFail="MARK_RAN">
+         <not>
+            <dbms type="oracle"/>
+         </not>
+      </preConditions>
+      <!-- postgres will not work unless column is in lower case -->
+      <renameColumn tableName="servicelevelagreement"
+       oldColumnName="notifydeadlineapproachingforwarding" newColumnName="notifydeadlineapproachingfw" />
+   </changeSet>
+   <changeSet author="camhoang" id="20120404-0840">
+      <preConditions onFail="MARK_RAN">
+         <dbms type="oracle"/>
+      </preConditions>
+      <addColumn tableName="servicelevelagreement">
+         <column name="notifydeadlineapproachingfw" type="java.sql.Types.BOOLEAN"/>
+      </addColumn>
+   </changeSet>
+
+   <changeSet author="jerry" id="20120723-1346">
+      <addColumn tableName="businessprocess">
+         <column name="txnid" type="java.sql.Types.INTEGER"/>
+      </addColumn>
+   </changeSet>
+
+   <changeSet author="jerry" id="20120730-1206">
+      <createTable tableName="changelog">
+         <column name="id" type="java.sql.Types.INTEGER">
+            <constraints nullable="false" primaryKey="true"/>
+         </column>
+         <column name="operateType" type="VARCHAR(8)">
+            <constraints nullable="false" />
+         </column>
+         <column name="operateTime" type="java.sql.Types.TIMESTAMP">
+            <constraints nullable="false" />
+         </column>
+         <column name="changes" type="VARCHAR(1024)">
+            <constraints nullable="false" />
+         </column>
+         <column name="tableName" type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column name="userid" type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column name="entityid" type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   
+   <!-- these next 3 changesets demonstrate how to make a long text field in all DBs -->
+   <changeSet author="jerryshea" id="20120730-0900-mssql">
+      <preConditions onFail="MARK_RAN">
+         <dbms type="mssql"/>
+      </preConditions>
+      <modifyDataType tableName="changelog" columnName="changes" newDataType="nvarchar(2000)"/>
+   </changeSet>
+
+   <changeSet author="jerryshea" id="20120730-0900-oracle">
+      <preConditions onFail="MARK_RAN">
+         <dbms type="oracle"/>
+      </preConditions>
+      <modifyDataType tableName="changelog" columnName="changes" newDataType="nvarchar2(2000)"/>
+   </changeSet>
+
+   <changeSet author="jerryshea" id="20120730-0900-others">
+      <preConditions onFail="MARK_RAN">
+         <or>
+            <dbms type="db2"/>
+            <dbms type="postgresql"/>
+         </or>
+      </preConditions>
+      <modifyDataType tableName="changelog" columnName="changes" newDataType="varchar(2000)"/>
+   </changeSet>
+
+   <changeSet author="jerry" id="20120906-1446">
+      <addColumn tableName="businessprocess">
+         <column name="stepid" type="java.sql.Types.INTEGER"/>
+      </addColumn>
+   </changeSet>
+   
+   <changeSet id="20130302-1305" author="Han Truong">
+      <addColumn tableName="businessprocess">
+         <column name="emailtemplate" type="VARCHAR(64)"/>
+         <column name="fromemail" type="VARCHAR(64)"/>
+         <column name="toemail" type="VARCHAR(64)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet id="20130304-1652" author="Han Truong">
+      <addColumn tableName="businessprocess">
+         <column name="isEmailNotification" type="java.sql.Types.BOOLEAN"/>
+      </addColumn>
+   </changeSet>
+   <changeSet id="20130307-1514" author="Han Truong">
+      <renameColumn tableName="businessprocess" oldColumnName="isEmailNotification" 
+      newColumnName="emailnotification"/>   
+   </changeSet>
+   
+</databaseChangeLog>

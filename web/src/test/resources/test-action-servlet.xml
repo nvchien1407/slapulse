@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- 
+    Automagic interceptor for onSubmit method Controller beans.
+    Used to control transaction commits.
+	Removed as it was not intercepting "onSubmit"
+    -->
+    <!--bean id="myInterceptor" class="com.renewtek.service.SomethingHappenedInterceptor"/>
+    
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames"><value>*Controller</value></property>
+        <property name="interceptorNames">
+            <list>
+                <value>myInterceptor</value>
+            </list>
+        </property>
+    </bean-->
+
+    <bean id="exceptionResolver" 
+        class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.dao.DataAccessException">        
+                    dataAccessFailure
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="2097152"/>
+    </bean>
+        
+    
+    <!--Reference-BEAN-START--><bean id="referenceController" class="com.renewtek.webapp.action.ReferenceController" autowire="byName"/>
+
+    <bean id="referenceFormController" class="com.renewtek.webapp.action.ReferenceFormController" autowire="byName">
+        <property name="commandName" value="reference"/>
+        <property name="commandClass" value="com.renewtek.model.Reference"/>
+		<property name="validator"><ref bean="beanValidator"/></property>
+        <property name="formView" value="referenceForm"/>
+        <property name="successView" value="redirect:references.html"/>
+        <property name="referenceManager"><ref bean="referenceManager"/></property>
+        
+    </bean>
+    <!--Reference-BEAN-END-->
+    
+    <!-- Load WEB-INF/classes/ApplicationResources.properties for i18n messages using JSTL's fmt tag -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="ApplicationResources"/>
+    </bean>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                
+                <!--Reference-URL-START-->
+                <prop key="/references.html">referenceController</prop>
+                <prop key="/editReference.html">referenceFormController</prop>
+                <!--Reference-URL-END-->
+                
+                <prop key="/calendar.html">calendarController</prop>
+		
+				<!--CalendarDate-URL-START-->
+                <prop key="/calendarDates.html">calendarDateController</prop>
+                <prop key="/editCalendarDate.html">calendarDateFormController</prop>
+                <!--CalendarDate-URL-END-->
+                
+                <!--DefaultWeek-URL-START-->
+                <prop key="/defaultWeeks.html">defaultWeekController</prop>
+                <prop key="/editDefaultWeek.html">defaultWeekFormController</prop>
+                <!--DefaultWeek-URL-END-->
+                
+                <!--WorkHourRange-URL-START-->
+                <prop key="/workHourRanges.html">workHourRangeController</prop>
+                <prop key="/editWorkHourRange.html">workHourRangeFormController</prop>
+                <!--WorkHourRange-URL-END-->
+                                
+                <!--DayModel-URL-START-->
+                <prop key="/editDayModel.html">dayModelController</prop>
+                <prop key="/editCalendar.html">calendarFormController</prop>
+                <!--DayModel-URL-END-->
+                
+                <!--ServiceLevelAgreement-URL-START-->
+                <prop key="/serviceLevelAgreements.html">serviceLevelAgreementController</prop>
+                <prop key="/editServiceLevelAgreement.html">serviceLevelAgreementFormController</prop>
+                <!--ServiceLevelAgreement-URL-END-->
+                
+                <!--BusinessProcess-URL-START-->
+                <prop key="/businessProcesss.html">businessProcessController</prop>
+                <prop key="/editBusinessProcess.html">businessProcessFormController</prop>
+                <!--BusinessProcess-URL-END-->
+                <!-- Add additional URL mappings here -->
+
+            </props>
+        </property>
+    </bean>
+
+    <bean id="adminUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="adminInterceptor"/>
+            </list>
+        </property>
+        <property name="mappings">
+            <props>
+                <prop key="/activeUsers.html">filenameController</prop>
+                <prop key="/flushCache.html">filenameController</prop>                
+            </props>
+        </property>
+    </bean>
+
+    <bean id="adminInterceptor" class="org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor">
+        <property name="authorizedRoles" value="admin"/>
+    </bean>
+    
+    <bean id="filenameController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+    <!-- View Resolver for JSPs -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="requestContextAttribute" value="rc"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+	<bean id="calendarController" class="com.renewtek.webapp.action.CalendarController" autowire="byName"/>
+<!--CalendarDate-BEAN-START--><bean id="calendarDateController" class="com.renewtek.webapp.action.CalendarDateController" autowire="byName"/>
+
+    <bean id="calendarDateFormController" class="com.renewtek.webapp.action.CalendarDateFormController" autowire="byName">
+        <property name="commandName" value="calendarDate"/>
+        <property name="commandClass" value="com.renewtek.model.CalendarDate"/>
+        <!-- property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="calendarDateForm"/>
+        <property name="successView" value="redirect:calendarDates.html"/>
+    </bean>
+    <!--CalendarDate-BEAN-END-->
+    
+    <!--DefaultWeek-BEAN-START--><bean id="defaultWeekController" class="com.renewtek.webapp.action.DefaultWeekController" autowire="byName"/>
+
+    <bean id="defaultWeekFormController" class="com.renewtek.webapp.action.DefaultWeekFormController" autowire="byName">
+        <property name="commandName" value="defaultWeek"/>
+        <property name="commandClass" value="com.renewtek.model.DefaultWeekDay"/>
+        <!-- property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="defaultWeekForm"/>
+        <property name="successView" value="redirect:defaultWeeks.html"/>
+    </bean>
+    <!--DefaultWeek-BEAN-END-->
+    
+    <!--WorkHourRange-BEAN-START--><bean id="workHourRangeController" class="com.renewtek.webapp.action.WorkHourRangeController" autowire="byName"/>
+
+    <bean id="workHourRangeFormController" class="com.renewtek.webapp.action.WorkHourRangeFormController" autowire="byName">
+        <property name="commandName" value="workHourRange"/>
+        <property name="commandClass" value="com.renewtek.model.WorkHourRange"/>
+        <!-- property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="workHourRangeForm"/>
+        <property name="successView" value="redirect:workHourRanges.html"/>
+    </bean>
+    <!--WorkHourRange-BEAN-END-->
+        
+    <!--DayModel-BEAN-START--><bean id="dayModelController" class="com.renewtek.webapp.action.DayModelController" autowire="byName"/>
+
+    <!--DayModel-BEAN-END-->
+    <bean id="calendarFormController" class="com.renewtek.webapp.action.CalendarFormController" autowire="byName">
+        <property name="commandName" value="calendarDays"/>
+        <property name="commandClass" value="com.renewtek.model.CalendarDays"/>
+        <!-- property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="calendarForm"/>
+        <property name="successView" value="redirect:calendar.html"/>
+    </bean>
+        
+    <!--ServiceLevelAgreement-BEAN-START--><bean id="serviceLevelAgreementController" class="com.renewtek.webapp.action.ServiceLevelAgreementController" autowire="byName"/>
+
+    <bean id="serviceLevelAgreementFormController" class="com.renewtek.webapp.action.ServiceLevelAgreementFormController" autowire="byName">
+        <property name="commandName" value="serviceLevelAgreement"/>
+        <property name="commandClass" value="com.renewtek.model.ServiceLevelAgreement"/>
+        <!--property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="serviceLevelAgreementForm"/>
+        <property name="successView" value="redirect:serviceLevelAgreements.html"/>
+    </bean>
+    <!--ServiceLevelAgreement-BEAN-END-->
+    
+    <!--BusinessProcess-BEAN-START--><bean id="businessProcessController" class="com.renewtek.webapp.action.BusinessProcessController" autowire="byName"/>
+
+    <bean id="businessProcessFormController" class="com.renewtek.webapp.action.BusinessProcessFormController" autowire="byName">
+        <property name="commandName" value="businessProcess"/>
+        <property name="commandClass" value="com.renewtek.model.BusinessProcess"/>
+        <!--property name="validator" ref="beanValidator"/-->
+        <property name="formView" value="businessProcessForm"/>
+        <property name="successView" value="redirect:businessProcesss.html"/>
+    </bean>
+    <!--BusinessProcess-BEAN-END-->
+    <!-- Add additional controller beans here -->
+
+
+</beans>

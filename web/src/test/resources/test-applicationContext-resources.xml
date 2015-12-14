@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+   <!-- ********* DO NOT REMOVE THIS NOTICE ********** COPYRIGHT(c)2006 RENEWTEK 
+      PTY LTD ********* DO NOT REMOVE THIS NOTICE ********** -->
+   <bean
+      class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="ignoreUnresolvablePlaceholders" value="true" />
+      <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+      <property name="ignoreResourceNotFound" value="true" />
+      <property name="locations">
+         <list>
+            <!-- Default properties for each adapter -->
+            <value>classpath:jdbc.properties</value>
+            <value>classpath:application-slapulse-test.properties
+            </value>
+            <!-- Overridden properties file using "slapulse.web.properties" 
+               system property refer: https://jira.renewtek.com/browse/RSLAP-18 -->
+            <value>${slapulse.web.properties}</value>
+         </list>
+      </property>
+   </bean>
+
+   <bean id="SLAPulseDataSource"
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="${hibernate.connection.driver_class}" />
+      <property name="url" value="${hibernate.connection.url}" />
+      <property name="username" value="${hibernate.connection.username}" />
+      <property name="password" value="${hibernate.connection.password}" />
+   </bean>
+
+   <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase"
+      lazy-init="false">
+      <property name="dataSource" ref="${default-datasource-bean}" />
+      <property name="changeLog" value="classpath:db_changelog.xml" />
+      <property name="contexts" value="${liquibase.contexts}" />
+   </bean>
+
+   <!-- Define new Handle/HanderListener SLA PULSE QUATZ SUPPORT -->
+   <bean id="propertyNameValue" class="java.util.HashMap">
+      <constructor-arg>
+         <map>
+            <entry key="START_TIME_PROPERTY_NAME" value="${sla.start.time.property.name}" />
+            <entry key="DEADLINE_TIME_PROPERTY_NAME" value="${sla.deadline.time.property.name}" />
+            <entry key="REMINDER_TIME_PROPERTY_NAME" value="${sla.reminder.time.property.name}" />
+            <entry key="STATUS_PROPERTY_NAME" value="${sla.status.time.property.name}" />
+            <entry key="NOTIFY_DEADLINE_APPROACHING_PROPERTY_NAME"
+               value="${sla.notifyDeadlineApproaching.time.property.name}" />
+            <entry key="TRANSACTION_PROPERTY_NAME" value="${sla.transaction.property.name}" />
+         </map>
+      </constructor-arg>
+   </bean>
+
+   <bean id="MockUpdatePropsWebService" class="com.renewtek.event.jms.MockUpdatePropsWebService" />
+
+   <bean id="jobDetailFactory" class="com.renewtek.event.jms.scheduling.JobDetailFactory">
+      <property name="jobClassMap">
+         <map>
+            <entry key="UPDATE_PROPS_WEB_SERVICES" value="MockUpdatePropsWebService" />
+         </map>
+      </property>
+   </bean>
+   <bean id="caseCreatedEventHandler" class="com.renewtek.event.jms.CaseCreatedEventHandler">
+      <property name="datetimeFormat" value="${sla.datetime.format}" />
+      <property name="updatePropsService" ref="MockUpdatePropsWebService" />
+      <property name="jobDetailFactory" ref="jobDetailFactory" />
+      <property name="scheduleFactory" ref="schedulerFactory" />
+      <property name="slaService" ref="slaService" />
+   </bean>
+   <bean id="caseCompletedEventHandler" class="com.renewtek.event.jms.CaseCompletedEventHandler">
+      <property name="scheduleFactory" ref="schedulerFactory" />
+   </bean>
+
+
+   <bean id="scheduler"
+      class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+      <property name="autoStartup" value="true" />
+      <property name="applicationContextSchedulerContextKey">
+         <value>applicationContext</value>
+      </property>
+   </bean>
+   <bean id="schedulerFactory" class="com.renewtek.event.jms.scheduling.ScheduleFactory" />
+
+   <bean id="slaMessageListener" class="com.renewtek.event.jms.SlaMessageListener"
+      autowire="byName" lazy-init="true">
+   </bean>
+
+</beans>
+

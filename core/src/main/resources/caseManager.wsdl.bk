@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="caseManagerRemote" targetNamespace="http://ws.web.remote.kata.renewtek.com/" xmlns:ns1="http://service.core.kata.renewtek.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.web.remote.kata.renewtek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://kata-anz-release.dev.renewtek.com/kata/services/caseManagerRemote?wsdl=CaseManager.wsdl" namespace="http://service.core.kata.renewtek.com/">
+    </wsdl:import>
+  <wsdl:binding name="caseManagerRemoteSoapBinding" type="ns1:CaseManager">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findOpenCasesByCaseType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findOpenCasesByCaseType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findOpenCasesByCaseTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCasesByKeyword">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="searchCasesByKeyword">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="searchCasesByKeywordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findSuitableUsersForAllocatingCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findSuitableUsersForAllocatingCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findSuitableUsersForAllocatingCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveLinkedCases">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveLinkedCases">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveLinkedCasesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveLinkedCasesById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveLinkedCasesById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveLinkedCasesByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openCaseAndLockById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="openCaseAndLockById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="openCaseAndLockByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCompletedCasesByCaseType">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCompletedCasesByCaseType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCompletedCasesByCaseTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="openCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="openCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseByExternalId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseByExternalId">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseByExternalIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachDocumentsByIds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="attachDocumentsByIds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="attachDocumentsByIdsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseByActionFormIdUnlock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseByActionFormIdUnlock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseByActionFormIdUnlockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableActionsForStepAndCurrentUser">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAvailableActionsForStepAndCurrentUser">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAvailableActionsForStepAndCurrentUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockUpdateCasePropertyAndUnlockMultipleStep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockUpdateCasePropertyAndUnlockMultipleStep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockUpdateCasePropertyAndUnlockMultipleStepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockUpdateCasePropertyAndUnlock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockUpdateCasePropertyAndUnlock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockUpdateCasePropertyAndUnlockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseNote">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseNote">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseNoteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkInDocument">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkInDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkInDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCasesByPropertyLabels">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCasesByPropertyLabels">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCasesByPropertyLabelsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadDocument">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="downloadDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachDocuments">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="attachDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="attachDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDocumentProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateDocumentProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateDocumentPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelCheckout">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="cancelCheckout">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelCheckoutResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getDocumentProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDocumentPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadInboxDetailsInUserView">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="loadInboxDetailsInUserView">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadInboxDetailsInUserViewResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reClassifyCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="reClassifyCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reClassifyCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allocateCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="allocateCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="allocateCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCaseHistory">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addCaseHistory">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addCaseHistoryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLockCaseOwner">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkLockCaseOwner">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkLockCaseOwnerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openCaseById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="openCaseById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="openCaseByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOutDocument">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkOutDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkOutDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentViewerUri">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getDocumentViewerUri">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDocumentViewerUriResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlockCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="unlockCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unlockCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachExistingDocuments">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="attachExistingDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="attachExistingDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveAuditRecords">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="retrieveAuditRecords">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="retrieveAuditRecordsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockUpdateCasePropertyAndUnlockAndNotify">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockUpdateCasePropertyAndUnlockAndNotify">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockUpdateCasePropertyAndUnlockAndNotifyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentsByProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findDocumentsByProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findDocumentsByPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseByIdOnStep">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseByIdOnStep">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseByIdOnStepResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findNextCaseBySequentialInbox">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findNextCaseBySequentialInbox">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findNextCaseBySequentialInboxResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseActionUnlock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseActionUnlock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseActionUnlockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCaseById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findCaseById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findCaseByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockUpdateCasePropertyAndUnlockMultiple">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockUpdateCasePropertyAndUnlockMultiple">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockUpdateCasePropertyAndUnlockMultipleResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUserInboxes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findUserInboxes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findUserInboxesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDocument">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCasesForCaseTypes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="searchCasesForCaseTypes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="searchCasesForCaseTypesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUnattachedDocuments">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deleteUnattachedDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteUnattachedDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openCaseAndLock">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="openCaseAndLock">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="openCaseAndLockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseByAction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseByAction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseByActionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLinkedCases">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLinkedCases">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLinkedCasesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCaseHistories">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="retrieveCaseHistories">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="retrieveCaseHistoriesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAttachmentsWithUpdatedProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="loadAttachmentsWithUpdatedProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadAttachmentsWithUpdatedPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actionCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="actionCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="actionCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createCaseForm">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createCaseForm">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createCaseFormResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentByExternalId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findDocumentByExternalId">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findDocumentByExternalIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoAttachDocuments">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="autoAttachDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="autoAttachDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentViewerURI">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getDocumentViewerURI">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDocumentViewerURIResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="findDocumentById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findDocumentByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadDocumentsWithUpdatedProperties">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="loadDocumentsWithUpdatedProperties">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadDocumentsWithUpdatedPropertiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCaseByActionUnlock2">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateCaseByActionUnlock2">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCaseByActionUnlock2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeCase">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="completeCase">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="completeCaseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="caseManagerRemote">
+    <wsdl:port binding="tns:caseManagerRemoteSoapBinding" name="CaseManagerRemotingImplPort">
+      <soap:address location="http://kata-anz-release.dev.renewtek.com/kata/services/caseManagerRemote" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2734 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Package Id="1" Name="New Workflow Collection"
+	xmlns="http://www.wfmc.org/2004/XPDL2.0alpha"
+	xmlns:deprecated="http://www.wfmc.org/2002/XPDL1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:fn="http://www.filenet.com/ns/fnpe/2010/11/pe/schema/XPDLExtensions"
+	xsi:schemaLocation="http://www.wfmc.org/2004/XPDL2.0alpha http://www.wfmc.org/standards/docs/TC-1025_bpmnxpdl_24.xsd">
+	<PackageHeader fn:AuthorTool="Process Designer" fn:ApplicationSpaceName="DefaultApplication">
+		<XPDLVersion>2.0</XPDLVersion>
+		<Vendor>FileNet Corporation; Process Engine API; Version 4.0</Vendor>
+		<Created>Feb 1, 2012 8:44:10 AM</Created>
+		<VendorExtensions>
+			<VendorExtension ToolId="FileNetPE" schemaLocation="http://www.filenet.com/ns/fnpe/2010/11/pe/schema/XPDLExtensions"/>
+		</VendorExtensions>
+	</PackageHeader>
+	<TypeDeclarations>
+		<TypeDeclaration Id="attachment" Name="attachment">
+			<BasicType Type="STRING"/>
+		</TypeDeclaration>
+		<TypeDeclaration Id="participant" Name="participant">
+			<BasicType Type="STRING"/>
+		</TypeDeclaration>
+		<TypeDeclaration Id="xml" Name="xml">
+			<BasicType Type="STRING"/>
+		</TypeDeclaration>
+	</TypeDeclarations>
+	<WorkflowProcesses>
+		<WorkflowProcess Id="0" Name="SLA_Template">
+			<ProcessHeader>
+				<Description>SLA  Workflow, if other work flow wants to apply SLA, need to inherit this workflow</Description>
+				<fn:WorkflowDefinition ApiVersion="4.0" Origin="JavaAPI"
+					Subject="&quot;&quot;"
+					DisableEmailNotification="false"
+					BaseWorkClass="CaseWorkObject"
+					Roster="DefaultRoster"
+					EventLog="DefaultEventLog"
+					AuthorTool="Process Designer"
+					OtherAuthorTools=""
+					versionAgnostic="false"
+					validateUsingSchema="true"
+					validateFlag="true"
+					transferFlag="true"
+					ActivitySetId="Process0.Map16">
+				</fn:WorkflowDefinition>
+			</ProcessHeader>
+			<DataFields>
+				<DataField Id="F_Trackers" IsArray="TRUE">
+					<DataType>
+						<DeclaredType Id="participant"/>
+					</DataType>
+					<InitialValue>{&quot;&quot;}</InitialValue>
+					<fn:Field MergeType="override_entry"/>
+				</DataField>
+				<DataField Id="SLADeadline" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLA Deadline</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLASleepTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLA Last Sleep Time</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAAccumSleepTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="FLOAT"/>
+					</DataType>
+					<InitialValue>0.0</InitialValue>
+					<Description>SLA Accumulate Sleep Time</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAStatus" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLA Status</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAProcessName" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLAProcessName</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAStartTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLAProcessName</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAProcessType" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLAProcessType</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAReminderTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLAReminderTime</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLADateCompleted" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLADateCompleted</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLAStopWhenPaused" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="BOOLEAN"/>
+					</DataType>
+					<InitialValue>true</InitialValue>
+					<Description>SLAStopWhenPaused</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="SLANotifyDeadlineApproaching" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="BOOLEAN"/>
+					</DataType>
+					<InitialValue>false</InitialValue>
+					<Description>SLANotifyDeadlineApproaching</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLADeadline" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLA Deadline</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLASleepTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLA Last Sleep Time</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAAccumSleepTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="FLOAT"/>
+					</DataType>
+					<InitialValue>0.0</InitialValue>
+					<Description>SLA Accumulate Sleep Time</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAStatus" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLA Status</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAProcessName" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLAProcessName</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAStartTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLAProcessName</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAProcessType" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="STRING"/>
+					</DataType>
+					<InitialValue>&quot;&quot;</InitialValue>
+					<Description>SLAProcessType</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAReminderTime" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLAReminderTime</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLADateCompleted" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="DATETIME"/>
+					</DataType>
+					<InitialValue>null(time)</InitialValue>
+					<Description>SLADateCompleted</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLAStopWhenPaused" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="BOOLEAN"/>
+					</DataType>
+					<InitialValue>true</InitialValue>
+					<Description>SLAStopWhenPaused</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+				<DataField Id="Step_SLANotifyDeadlineApproaching" IsArray="FALSE">
+					<DataType>
+						<BasicType Type="BOOLEAN"/>
+					</DataType>
+					<InitialValue>false</InitialValue>
+					<Description>SLANotifyDeadlineApproaching</Description>
+					<fn:Field MergeType="override"/>
+				</DataField>
+			</DataFields>
+			<ActivitySets>
+				<ActivitySet Id="Process0.Map0" Name="StartSLA"
+					fn:Description="StartSLA"
+					fn:MaxStepId="46">
+					<Activities>
+						<Activity Id="Workflow0.Map0.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<Assignments>
+								<Assignment AssignTime="Start">
+									<Target>SLAAccumSleepTime</Target>
+									<Expression>0</Expression>
+								</Assignment>
+							</Assignments>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map0.mapnode23" Name="Initialise SLA Parameters" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="172" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="26"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStartTime" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStartTime" />
+				<Expression Val="SLAStartTime" />
+			</Instruction>
+			<Instruction
+				Id="27"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLADeadline" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStartTime" />
+				<Expression Val="SLAAccumSleepTime" />
+				<Expression Val="SLADeadline" />
+			</Instruction>
+			<Instruction
+				Id="28"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAReminderTime" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStartTime" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="SLAReminderTime" />
+			</Instruction>
+			<Instruction
+				Id="29"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="SLAReminderTime" />
+				<Expression Val="SLAStatus" />
+			</Instruction>
+			<Instruction
+				Id="46"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLANotifyDeadlineApproaching" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLANotifyDeadlineApproaching" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map0.mapnode39" Name="Return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="334" YCoordinate="169"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map0.mapnode43" Name="Start SLA Timers" fn:CompoundStep="true">
+							<BlockActivity ActivitySetId="Process0.Map6"/>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="333" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="4"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map0.route0" From="Workflow0.Map0.mapnode0" To="Workflow0.Map0.mapnode23">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map0.route1" From="Workflow0.Map0.mapnode23" To="Workflow0.Map0.mapnode43">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map0.route2" From="Workflow0.Map0.mapnode43" To="Workflow0.Map0.mapnode39">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map1" Name="ExpireSLA"
+					fn:Description="ExpireSLA, when the sla timer expires, this expiration submap is invoked"
+					fn:MaxStepId="14">
+					<Activities>
+						<Activity Id="Workflow0.Map1.mapnode0" Name="StartStep" StartActivity="true">
+							<Deadline Execution="SYNCHR">
+								<DeadlineDuration>0 Minutes</DeadlineDuration>
+							</Deadline>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map1.mapnode9" Name="Return to calling work flow" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="358" YCoordinate="48"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="10"
+				Action="return">
+				<Expression Val="true" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map1.mapnode12" Name="Expire SLA" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="198" YCoordinate="49"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="14"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="SLAReminderTime" />
+				<Expression Val="SLAStatus" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map1.route0" From="Workflow0.Map1.mapnode0" To="Workflow0.Map1.mapnode12">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map1.route1" From="Workflow0.Map1.mapnode12" To="Workflow0.Map1.mapnode9">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map2" Name="WakeSLA"
+					fn:Description="WakeSLA"
+					fn:MaxStepId="29">
+					<Activities>
+						<Activity Id="Workflow0.Map2.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="47" YCoordinate="48"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map2.mapnode13" Name="return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="274" YCoordinate="219"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="14"
+				Action="return">
+				<Expression Val="false" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map2.mapnode16" Name="Wake SLA" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="276" YCoordinate="49"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="18"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAAccumSleepTime" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLASleepTime" />
+				<Expression Val="systemtime()" />
+				<Expression Val="SLAAccumSleepTime" />
+				<Expression Val="SLAAccumSleepTime" />
+			</Instruction>
+			<Instruction
+				Id="19"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLADeadline" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStartTime" />
+				<Expression Val="SLAAccumSleepTime" />
+				<Expression Val="SLADeadline" />
+			</Instruction>
+			<Instruction
+				Id="20"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAReminderTime" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStartTime" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="SLAReminderTime" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map2.mapnode22" Name="Start SLA Timers" fn:CompoundStep="true">
+							<BlockActivity ActivitySetId="Process0.Map6"/>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="428" YCoordinate="49"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="4"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map2.route0" Name="Paused" From="Workflow0.Map2.mapnode0" To="Workflow0.Map2.mapnode16">
+							<Condition Type="CONDITION">SLAStopWhenPaused = true</Condition>
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map2.route1" Name="Not Paused" From="Workflow0.Map2.mapnode0" To="Workflow0.Map2.mapnode13">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map2.route2" From="Workflow0.Map2.mapnode16" To="Workflow0.Map2.mapnode22">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map3" Name="SleepSLA"
+					fn:Description="SleepSLA"
+					fn:MaxStepId="38">
+					<Activities>
+						<Activity Id="Workflow0.Map3.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="58" YCoordinate="55"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map3.mapnode6" Name="End SLA timers" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="422" YCoordinate="53"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="10"
+				Action="end_timer">
+				<Expression Val="&quot;SLATIMER&quot;" />
+			</Instruction>
+			<Instruction
+				Id="11"
+				Action="end_timer">
+				<Expression Val="&quot;SLAReminderTimer&quot;" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map3.mapnode8" Name="Set Sleep Date" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<Assignments>
+								<Assignment AssignTime="Start">
+									<Target>SLASleepTime</Target>
+									<Expression>systemtime()</Expression>
+								</Assignment>
+							</Assignments>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="421" YCoordinate="242"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map3.mapnode13" Name="return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="196" YCoordinate="243"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="14"
+				Action="return">
+				<Expression Val="false" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map3.mapnode19" Name="Check Stop SLA When Paused" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="195" YCoordinate="54"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="20"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStopWhenPaused" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="SLAStopWhenPaused" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map3.route0" From="Workflow0.Map3.mapnode0" To="Workflow0.Map3.mapnode19">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map3.route1" From="Workflow0.Map3.mapnode6" To="Workflow0.Map3.mapnode8">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map3.route2" Name="Yes" From="Workflow0.Map3.mapnode19" To="Workflow0.Map3.mapnode6">
+							<Condition Type="CONDITION">SLAStopWhenPaused = true</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map3.route3" Name="No" From="Workflow0.Map3.mapnode19" To="Workflow0.Map3.mapnode13">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map4" Name="CompleteSLA"
+					fn:Description="CompleteSLA"
+					fn:MaxStepId="15">
+					<Activities>
+						<Activity Id="Workflow0.Map4.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="43" YCoordinate="45"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map4.mapnode6" Name="End SLA Timers" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="175" YCoordinate="44"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="10"
+				Action="end_timer">
+				<Expression Val="&quot;SLATIMER&quot;" />
+			</Instruction>
+			<Instruction
+				Id="11"
+				Action="end_timer">
+				<Expression Val="&quot;SLAReminderTimer&quot;" />
+			</Instruction>
+			<Instruction
+				Id="15"
+				Action="assign">
+				<Expression Val="SLADateCompleted" />
+				<Expression Val="systemtime()" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map4.route0" From="Workflow0.Map4.mapnode0" To="Workflow0.Map4.mapnode6">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map5" Name="ExpireSLAReminder"
+					fn:Description="ExpireSLAReminder"
+					fn:MaxStepId="19">
+					<Activities>
+						<Activity Id="Workflow0.Map5.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="61" YCoordinate="25"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map5.mapnode12" Name="return to calling work flow" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="358" YCoordinate="25"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="13"
+				Action="return">
+				<Expression Val="true" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map5.mapnode18" Name="Expire SLA Reminder" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="204" YCoordinate="26"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="19"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="SLAProcessName" />
+				<Expression Val="SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="SLAReminderTime" />
+				<Expression Val="SLAStatus" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map5.route0" From="Workflow0.Map5.mapnode0" To="Workflow0.Map5.mapnode18">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map5.route1" From="Workflow0.Map5.mapnode18" To="Workflow0.Map5.mapnode12">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map6" Name="SLAStartTimers"
+					fn:Description="Starts SLA timers if their values are in the future"
+					fn:MaxStepId="60">
+					<Activities>
+						<Activity Id="Workflow0.Map6.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="39" YCoordinate="318"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map6.mapnode48" Name="Check SLA time" fn:CompoundStep="true">
+							<Description>Ensure Deadline Timer is only set if its value is greater than current time.&#10;See FileNet documentation for further details.</Description>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="177" YCoordinate="319"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map6.mapnode49" Name="Return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="422" YCoordinate="320"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map6.mapnode53" Name="Begin SLA Deadline" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="177" YCoordinate="94"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="54"
+				Action="begin_timer">
+				<Expression Val="&quot;SLATIMER&quot;" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="ExpireSLA" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map6.mapnode57" Name="Begin SLA Reminder Time" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="623" YCoordinate="94"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="58"
+				Action="begin_timer">
+				<Expression Val="&quot;SLAReminderTimer&quot;" />
+				<Expression Val="SLAReminderTime" />
+				<Expression Val="ExpireSLAReminder" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map6.mapnode59" Name="Check SLA Time" fn:CompoundStep="true">
+							<Description>Ensure Reminder Timer is only set if its value is greater than current time.&#10;See FileNet documentation for further details.</Description>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="420" YCoordinate="94"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="60"
+				Action="begin_timer">
+				<Expression Val="&quot;SLATIMER&quot;" />
+				<Expression Val="SLADeadline" />
+				<Expression Val="ExpireSLA" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map6.route0" From="Workflow0.Map6.mapnode0" To="Workflow0.Map6.mapnode48">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route1" Name="OK" From="Workflow0.Map6.mapnode48" To="Workflow0.Map6.mapnode53">
+							<Condition Type="CONDITION">SLADeadline &gt; systemtime()</Condition>
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route2" Name="Not OK" From="Workflow0.Map6.mapnode48" To="Workflow0.Map6.mapnode49">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route5" From="Workflow0.Map6.mapnode57" To="Workflow0.Map6.mapnode49">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route6" Name="OK" From="Workflow0.Map6.mapnode59" To="Workflow0.Map6.mapnode57">
+							<Condition Type="CONDITION">SLAReminderTime &gt; systemtime()</Condition>
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route7" Name="Not OK" From="Workflow0.Map6.mapnode59" To="Workflow0.Map6.mapnode49">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route8" Name="Set Reminder" From="Workflow0.Map6.mapnode53" To="Workflow0.Map6.mapnode59">
+							<Condition Type="CONDITION">SLANotifyDeadlineApproaching = true</Condition>
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map6.route9" Name="No Reminder" From="Workflow0.Map6.mapnode53" To="Workflow0.Map6.mapnode49">
+							<Condition Type="CONDITION">SLANotifyDeadlineApproaching = false</Condition>
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map7" Name="Malfunction"
+					fn:MaxStepId="3">
+					<Activities>
+						<Activity Id="Workflow0.Map7.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="20" YCoordinate="20"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map7.mapnode1" Name="Review">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="20" YCoordinate="120"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								QueueName="Conductor"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<StepOperation Name="Review">
+								</StepOperation>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="2"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map7.mapnode3" Name="Return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="20" YCoordinate="220"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="2"
+				Action="return">
+				<Expression Val="F_WFReminder = 1" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map7.route0" From="Workflow0.Map7.mapnode0" To="Workflow0.Map7.mapnode1">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map7.route1" From="Workflow0.Map7.mapnode1" To="Workflow0.Map7.mapnode3">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map8" Name="Terminate"
+					fn:MaxStepId="0">
+					<Activities>
+						<Activity Id="Workflow0.Map8.mapnode0" Name="StartStep" StartActivity="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="20" YCoordinate="20"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+					</Activities>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map9" Name="Step_SLAStartTimers"
+					fn:Description=""
+					fn:MaxStepId="70">
+					<Activities>
+						<Activity Id="Workflow0.Map9.mapnode0" Name="StartStep" StartActivity="true">
+							<Deadline Execution="SYNCHR">
+								<DeadlineDuration>0 Minutes</DeadlineDuration>
+							</Deadline>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="48" YCoordinate="244"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map9.mapnode63" Name="Check SLA time" fn:CompoundStep="true">
+							<Description>Ensure Deadline Timer is only set if its value is greater than current time.&#10;See FileNet documentation for further details.</Description>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="257" YCoordinate="245"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map9.mapnode64" Name="Begin SLA Deadline" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="257" YCoordinate="20"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="65"
+				Action="begin_timer">
+				<Expression Val="&quot;STEP_SLATIMER&quot;" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_ExpireSLA" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map9.mapnode66" Name="Check SLA Time" fn:CompoundStep="true">
+							<Description>Ensure Reminder Timer is only set if its value is greater than current time.&#10;See FileNet documentation for further details.</Description>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="500" YCoordinate="20"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="67"
+				Action="begin_timer">
+				<Expression Val="&quot;STEP_SLATIMER&quot;" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_ExpireSLA" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map9.mapnode68" Name="Begin SLA Reminder Time" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="703" YCoordinate="20"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="69"
+				Action="begin_timer">
+				<Expression Val="&quot;Step_SLAReminderTimer&quot;" />
+				<Expression Val="Step_SLAReminderTime" />
+				<Expression Val="Step_ExpireSLAReminder" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map9.mapnode70" Name="Return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="502" YCoordinate="246"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map9.route1" Name="OK" From="Workflow0.Map9.mapnode63" To="Workflow0.Map9.mapnode64">
+							<Condition Type="CONDITION">Step_SLADeadline &gt; systemtime()</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route2" Name="Not OK" From="Workflow0.Map9.mapnode63" To="Workflow0.Map9.mapnode70">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route5" Name="OK" From="Workflow0.Map9.mapnode66" To="Workflow0.Map9.mapnode68">
+							<Condition Type="CONDITION">Step_SLAReminderTime &gt; systemtime()</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route6" Name="Not OK" From="Workflow0.Map9.mapnode66" To="Workflow0.Map9.mapnode70">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route7" From="Workflow0.Map9.mapnode68" To="Workflow0.Map9.mapnode70">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route8" From="Workflow0.Map9.mapnode0" To="Workflow0.Map9.mapnode63">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route9" Name="Set Reminder" From="Workflow0.Map9.mapnode64" To="Workflow0.Map9.mapnode66">
+							<Condition Type="CONDITION">Step_SLANotifyDeadlineApproaching = true</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map9.route10" Name="No Reminder" From="Workflow0.Map9.mapnode64" To="Workflow0.Map9.mapnode70">
+							<Condition Type="CONDITION">Step_SLANotifyDeadlineApproaching = false</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map10" Name="Step_ExpireSLA"
+					fn:Description=""
+					fn:MaxStepId="75">
+					<Activities>
+						<Activity Id="Workflow0.Map10.mapnode0" Name="StartStep" StartActivity="true">
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map10.mapnode72" Name="Return to calling work flow" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="367" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="73"
+				Action="return">
+				<Expression Val="true" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map10.mapnode74" Name="Expire SLA" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="207" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="75"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_SLAReminderTime" />
+				<Expression Val="Step_SLAStatus" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map10.route8" From="Workflow0.Map10.mapnode74" To="Workflow0.Map10.mapnode72">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map10.route9" From="Workflow0.Map10.mapnode0" To="Workflow0.Map10.mapnode74">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map11" Name="Step_ExpireSLAReminder"
+					fn:Description=""
+					fn:MaxStepId="24">
+					<Activities>
+						<Activity Id="Workflow0.Map11.mapnode0" Name="StartStep" StartActivity="true">
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map11.mapnode21" Name="return to calling work flow" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="357" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="22"
+				Action="return">
+				<Expression Val="true" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map11.mapnode23" Name="Expire SLA Reminder" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="203" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="24"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_SLAReminderTime" />
+				<Expression Val="Step_SLAStatus" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map11.route0" From="Workflow0.Map11.mapnode23" To="Workflow0.Map11.mapnode21">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map11.route1" From="Workflow0.Map11.mapnode0" To="Workflow0.Map11.mapnode23">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map12" Name="Step_CompleteSLA"
+					fn:Description=""
+					fn:MaxStepId="20">
+					<Activities>
+						<Activity Id="Workflow0.Map12.mapnode0" Name="StartStep" StartActivity="true">
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map12.mapnode17" Name="End SLA Timers" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="225" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="18"
+				Action="end_timer">
+				<Expression Val="&quot;STEP_SLATIMER&quot;" />
+			</Instruction>
+			<Instruction
+				Id="19"
+				Action="end_timer">
+				<Expression Val="&quot;STEP_SLAReminderTimer&quot;" />
+			</Instruction>
+			<Instruction
+				Id="20"
+				Action="assign">
+				<Expression Val="Step_SLADateCompleted" />
+				<Expression Val="systemtime()" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map12.route0" From="Workflow0.Map12.mapnode0" To="Workflow0.Map12.mapnode17">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map13" Name="Step_SleepSLA"
+					fn:Description=""
+					fn:MaxStepId="130">
+					<Activities>
+						<Activity Id="Workflow0.Map13.mapnode0" Name="StartStep" StartActivity="true">
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map13.mapnode42" Name="End SLA timers" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="460" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="43"
+				Action="end_timer">
+				<Expression Val="&quot;STEP_SLATIMER&quot;" />
+			</Instruction>
+			<Instruction
+				Id="44"
+				Action="end_timer">
+				<Expression Val="&quot;STEP_SLAReminderTimer&quot;" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map13.mapnode45" Name="return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="234" YCoordinate="240"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="46"
+				Action="return">
+				<Expression Val="false" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map13.mapnode47" Name="Check Stop SLA When Paused" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="233" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="48"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStopWhenPaused" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStopWhenPaused" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map13.mapnode49" Name="Set Sleep Date" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<Assignments>
+								<Assignment AssignTime="Start">
+									<Target>Step_SLASleepTime</Target>
+									<Expression>systemtime()</Expression>
+								</Assignment>
+							</Assignments>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="459" YCoordinate="239"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map13.route0" From="Workflow0.Map13.mapnode42" To="Workflow0.Map13.mapnode49">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map13.route1" Name="Yes" From="Workflow0.Map13.mapnode47" To="Workflow0.Map13.mapnode42">
+							<Condition Type="CONDITION">Step_SLAStopWhenPaused = true</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map13.route2" Name="No" From="Workflow0.Map13.mapnode47" To="Workflow0.Map13.mapnode45">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map13.route3" From="Workflow0.Map13.mapnode0" To="Workflow0.Map13.mapnode47">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map14" Name="Step_StartSLA"
+					fn:Description=""
+					fn:MaxStepId="144">
+					<Activities>
+						<Activity Id="Workflow0.Map14.mapnode0" Name="StartStep" StartActivity="true">
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map14.mapnode48" Name="Initialise SLA Parameters" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="180" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="51"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStartTime" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStartTime" />
+				<Expression Val="Step_SLAStartTime" />
+			</Instruction>
+			<Instruction
+				Id="52"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLADeadline" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStartTime" />
+				<Expression Val="Step_SLAAccumSleepTime" />
+				<Expression Val="Step_SLADeadline" />
+			</Instruction>
+			<Instruction
+				Id="53"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAReminderTime" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStartTime" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_SLAReminderTime" />
+			</Instruction>
+			<Instruction
+				Id="54"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAStatus" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="systemtime()" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_SLAReminderTime" />
+				<Expression Val="Step_SLAStatus" />
+			</Instruction>
+			<Instruction
+				Id="55"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLANotifyDeadlineApproaching" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLANotifyDeadlineApproaching" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map14.mapnode56" Name="Return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="342" YCoordinate="169"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map14.mapnode57" Name="Start SLA Timers" fn:CompoundStep="true">
+							<BlockActivity ActivitySetId="Process0.Map9"/>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="341" YCoordinate="51"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="4"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map14.route0" From="Workflow0.Map14.mapnode48" To="Workflow0.Map14.mapnode57">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map14.route1" From="Workflow0.Map14.mapnode57" To="Workflow0.Map14.mapnode56">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map14.route2" From="Workflow0.Map14.mapnode0" To="Workflow0.Map14.mapnode48">
+							<fn:Route>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+				<ActivitySet Id="Process0.Map15" Name="Step_WakeSLA"
+					fn:Description=""
+					fn:MaxStepId="152">
+					<Activities>
+						<Activity Id="Workflow0.Map15.mapnode0" Name="StartStep" StartActivity="true">
+							<Deadline Execution="SYNCHR">
+								<DeadlineDuration>0 Minutes</DeadlineDuration>
+							</Deadline>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="50" YCoordinate="50"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:Step
+								RequestedInterface="Approval HTML (FileNet)"
+								CanReassign="true"
+								CanViewStatus="true"
+								CanViewHistory="false"
+								IgnoreInvalidUsers="false">
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="3"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Step>
+						</Activity>
+						<Activity Id="Workflow0.Map15.mapnode33" Name="return" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="258" YCoordinate="222"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="34"
+				Action="return">
+				<Expression Val="false" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="6"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map15.mapnode35" Name="Start SLA Timers" fn:CompoundStep="true">
+							<BlockActivity ActivitySetId="Process0.Map9"/>
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="412" YCoordinate="52"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="4"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+						<Activity Id="Workflow0.Map15.mapnode37" Name="Wake SLA" fn:CompoundStep="true">
+							<TransitionRestrictions>
+								<TransitionRestriction>
+									<Join Type="XOR"/>
+									<Split Type="XOR"/>
+								</TransitionRestriction>
+							</TransitionRestrictions>
+							<NodeGraphicsInfos>
+								<NodeGraphicsInfo ToolId="FileNetPE">
+									<Coordinates XCoordinate="260" YCoordinate="52"/>
+								</NodeGraphicsInfo>
+							</NodeGraphicsInfos>
+							<Extensions/>
+							<fn:CompoundStep>
+			<Instruction
+				Id="38"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAAccumSleepTime" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLASleepTime" />
+				<Expression Val="systemtime()" />
+				<Expression Val="Step_SLAAccumSleepTime" />
+				<Expression Val="Step_SLAAccumSleepTime" />
+			</Instruction>
+			<Instruction
+				Id="39"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLADeadline" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStartTime" />
+				<Expression Val="Step_SLAAccumSleepTime" />
+				<Expression Val="Step_SLADeadline" />
+			</Instruction>
+			<Instruction
+				Id="40"
+				Action="execute">
+				<Expression Val="SLA_Operations" />
+				<Expression Val="getSLAReminderTime" />
+				<Expression Val="Step_SLAProcessName" />
+				<Expression Val="Step_SLAProcessType" />
+				<Expression Val="Step_SLAStartTime" />
+				<Expression Val="Step_SLADeadline" />
+				<Expression Val="Step_SLAReminderTime" />
+			</Instruction>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_StepType"
+										Type="int"
+										IsArray="false">
+											<Value Val="8"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:CompoundStep>
+						</Activity>
+					</Activities>
+					<Transitions>
+						<Transition Id="Workflow0.Map15.route0" From="Workflow0.Map15.mapnode37" To="Workflow0.Map15.mapnode35">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="100"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map15.route1" Name="Paused" From="Workflow0.Map15.mapnode0" To="Workflow0.Map15.mapnode37">
+							<Condition Type="CONDITION">Step_SLAStopWhenPaused = true</Condition>
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+						<Transition Id="Workflow0.Map15.route2" Name="Not Pause" From="Workflow0.Map15.mapnode0" To="Workflow0.Map15.mapnode33">
+							<fn:Route>
+								<ModelAttributes>
+									<ModelAttribute
+										Name="UI_RouteWeight"
+										Type="int"
+										IsArray="false">
+											<Value Val="50"/>
+									</ModelAttribute>
+								</ModelAttributes>
+							</fn:Route>
+						</Transition>
+					</Transitions>
+				</ActivitySet>
+			</ActivitySets>
+			<Activities>
+				<Activity Id="Workflow0.Map16.mapnode0" Name="LaunchStep" StartActivity="true">
+					<Implementation>
+						<Task>
+							<TaskApplication Id="Workflow0.Map16.mapnode0.Parameters">
+								<DataMappings>
+									<DataMapping Formal="SLADeadline" Direction="INOUT">
+										<Actual>SLADeadline</Actual>
+										<fn:Parameter Type="time" IsArray="false"
+											Description="SLA Deadline"/>
+									</DataMapping>
+									<DataMapping Formal="SLAAccumSleepTime" Direction="INOUT">
+										<Actual>SLAAccumSleepTime</Actual>
+										<fn:Parameter Type="float" IsArray="false"
+											Description="SLA Accumulate Sleep Time"/>
+									</DataMapping>
+									<DataMapping Formal="SLAStatus" Direction="INOUT">
+										<Actual>SLAStatus</Actual>
+										<fn:Parameter Type="string" IsArray="false"
+											Description="SLA StatusString"/>
+									</DataMapping>
+								</DataMappings>
+							</TaskApplication>
+						</Task>
+					</Implementation>
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Split Type="XOR"/>
+						</TransitionRestriction>
+					</TransitionRestrictions>
+					<NodeGraphicsInfos>
+						<NodeGraphicsInfo ToolId="FileNetPE">
+							<Coordinates XCoordinate="41" YCoordinate="35"/>
+						</NodeGraphicsInfo>
+					</NodeGraphicsInfos>
+					<Extensions/>
+					<fn:Step
+						RequestedInterface="Approval Launch HTML (FileNet)"
+						CanReassign="true"
+						CanViewStatus="true"
+						CanViewHistory="false"
+						IgnoreInvalidUsers="false">
+						<ModelAttributes>
+							<ModelAttribute
+								Name="UI_StepType"
+								Type="int"
+								IsArray="false">
+									<Value Val="1"/>
+							</ModelAttribute>
+						</ModelAttributes>
+					</fn:Step>
+				</Activity>
+				<Activity Id="Workflow0.Map16.mapnode6" Name="End" fn:CompoundStep="true">
+					<Event>
+						<EndEvent/>
+					</Event>
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Join Type="XOR"/>
+							<Split Type="XOR"/>
+						</TransitionRestriction>
+					</TransitionRestrictions>
+					<NodeGraphicsInfos>
+						<NodeGraphicsInfo ToolId="FileNetPE">
+							<Coordinates XCoordinate="214" YCoordinate="35"/>
+						</NodeGraphicsInfo>
+					</NodeGraphicsInfos>
+					<Extensions/>
+					<fn:CompoundStep>
+						<ModelAttributes>
+							<ModelAttribute
+								Name="UI_StepType"
+								Type="int"
+								IsArray="false">
+									<Value Val="6"/>
+							</ModelAttribute>
+						</ModelAttributes>
+					</fn:CompoundStep>
+				</Activity>
+			</Activities>
+			<Transitions>
+				<Transition Id="Workflow0.Map16.route0" From="Workflow0.Map16.mapnode0" To="Workflow0.Map16.mapnode6">
+					<fn:Route>
+					</fn:Route>
+				</Transition>
+			</Transitions>
+			<ExtendedAttributes>
+				<ExtendedAttribute Name="fn:WorkflowName" Value="Workflow"/>
+				<ExtendedAttribute Name="fn:MaxStepId" Value="162"/>
+			</ExtendedAttributes>
+		</WorkflowProcess>
+	</WorkflowProcesses>
+</Package>

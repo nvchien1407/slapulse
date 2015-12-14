@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="ignoreUnresolvablePlaceholders" value="true" />
+      <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+      <property name="ignoreResourceNotFound" value="true" />
+      <property name="locations">
+         <list>
+            <!-- Default properties for each adapter -->
+            <value>classpath:database.properties</value>
+			<!-- Allow sensitive information to be stored in a different file. This property can be overriden
+			     from the command line so that a customer can choose a different file to hold their encryption
+			     password. They can choose to secure the properties file with OS permissions -->
+            <value>${sms.encryption.properties:classpath:sms-encryption.properties}</value>
+            <value>${sms.encryption.properties}.sla</value>
+            <!--
+               Overridden properties file using "slapulse.component.properties" system property
+               refer: https://jira.renewtek.com/browse/RSLAP-18
+            -->
+            <value>${slapulse.component.properties}</value>
+         </list>
+      </property>
+   </bean>
+
+    <bean id="pbePasswordEncoder" class="${password.encoder.decoder}">
+       <constructor-arg value="${sms.encryption.password}"/>
+    </bean>
+   <!-- <bean name="authenticationInfo" class="com.renewtek.sla.security.AuthenticationInfo">
+       <constructor-arg index="0" value="${hibernate.connection.username}" />
+       <constructor-arg index="1" value="${hibernate.connection.password}" />
+      <constructor-arg index="2" ref="pbePasswordEncoder"/>
+    </bean>
+    <bean name="hibernateConnectionPassword" factory-bean="authenticationInfo" factory-method="getDecryptedPassword" />-->
+
+    <bean id="SLAPulseDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${hibernate.connection.driver_class}"/>
+        <property name="url" value="${hibernate.connection.url}"/>
+        <property name="username" value="${hibernate.connection.username}"/>
+        <!-- property name="password" value="${hibernate.connection.password}"/ -->
+        <property name="password" ref="hibernateConnectionPassword"/>
+    </bean>
+
+   <bean id="slaServicesTarget" class="com.renewtek.service.impl.SLAServicesImpl" autowire="byName"/>
+
+   <bean id="hibernateSessionManager" class="com.renewtek.sla.operations.interceptor.HibernateSessionManager" autowire="byName"/>
+
+   <bean id="slaServices"
+       class="org.springframework.aop.framework.ProxyFactoryBean">
+       <property name="proxyInterfaces"><value>com.renewtek.service.SLAServices</value></property>
+       <property name="target"><ref local="slaServicesTarget"/></property>
+       <property name="interceptorNames">
+           <list>
+               <value>hibernateSessionManager</value>
+           </list>
+       </property>
+   </bean>
+   
+   <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase" lazy-init="false">
+      <property name="dataSource" ref="${default-datasource-bean}"/>
+      <property name="changeLog" value="classpath:db_changelog.xml"/>
+      <property name="contexts" value="${liquibase.contexts}"/>
+   </bean>
+</beans>
+

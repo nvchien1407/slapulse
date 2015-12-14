@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+<MenuConfig>
+    <Displayers>
+        <Displayer name="ListMenu" type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    </Displayers>
+    <Menus>
+        <!-- ====================   Administrator Menu   =========================== -->
+        <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="admin">
+            <Item name="am.viewUsers" title="menu.admin.users" page="/users.html"/>
+            <Item name="ReloadContext" title="menu.admin.reload" page="/reload.html"/>
+        </Menu>
+        <!-- ====================   User Menu   =========================== -->
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.html"/>
+        <!-- ====================   Upload File Menu   =========================== -->
+        <Menu name="FileUpload" title="menu.selectFile" description="File Upload" page="/selectFile.html"/>
+        <!-- ====================   Flush Cache   =========================== -->
+        <Menu name="FlushCache" title="menu.flushCache" page="/flushCache.html" roles="admin"/>
+        <!-- ====================   Clickstream   =========================== -->
+        <Menu name="Clickstream" title="menu.clickstream" page="/clickstreams.jsp" roles="admin"/>
+        
+        <!--ApprovalsScope-START-->
+        <Menu name="ApprovalsScopeMenu" title="approvalsScopeList.title" page="/approvalsScopes.html"/>
+        <!--ApprovalsScope-END-->
+        <!--AuditDoc-START-->
+        <Menu name="AuditDocMenu" title="auditDocList.title" page="/auditDocs.html"/>
+        <!--AuditDoc-END-->
+        <!--Auditor-START-->
+        <Menu name="AuditorMenu" title="auditorList.title" page="/auditors.html"/>
+        <!--Auditor-END-->
+        <!--ChangeLog-START-->
+        <Menu name="ChangeLogMenu" title="changeLogList.title" page="/changeLogs.html"/>
+        <!--ChangeLog-END-->
+        <!--Dia-START-->
+        <Menu name="DiaMenu" title="diaList.title" page="/dias.html"/>
+        <!--Dia-END-->
+        <!--Reference-START-->
+        <Menu name="ReferenceMenu" title="referenceList.title" page="/references.html"/>
+        <!--Reference-END-->
+        <!--Supplier-START-->
+        <Menu name="SupplierMenu" title="supplierList.title" page="/suppliers.html"/>
+        <!--Supplier-END-->
+        <!--SupplierApprovalsScope-START-->
+        <Menu name="SupplierApprovalsScopeMenu" title="supplierApprovalsScopeList.title" page="/supplierApprovalsScopes.html"/>
+        <!--SupplierApprovalsScope-END-->
+        <!--SupplierAudit-START-->
+        <Menu name="SupplierAuditMenu" title="supplierAuditList.title" page="/supplierAudits.html"/>
+        <!--SupplierAudit-END-->
+        <!--SupplierUpdatesNotify-START-->
+        <Menu name="SupplierUpdatesNotifyMenu" title="supplierUpdatesNotifyList.title" page="/supplierUpdatesNotifys.html"/>
+        <!--SupplierUpdatesNotify-END-->
+        <!--DefaultWeek-START-->
+        <Menu name="DefaultWeekMenu" title="defaultWeekList.title" page="/defaultWeeks.html"/>
+        <!--DefaultWeek-END-->
+        <!--WorkHourRange-START-->
+        <Menu name="WorkHourRangeMenu" title="workHourRangeList.title" page="/workHourRanges.html"/>
+        <!--WorkHourRange-END-->
+        
+        
+        
+        
+        
+        <!--ServiceLevelAgreement-START-->
+        <Menu name="ServiceLevelAgreementMenu" title="serviceLevelAgreementList.title" page="/serviceLevelAgreements.html"/>
+        <!--ServiceLevelAgreement-END-->
+        <!--BusinessProcess-START-->
+        <Menu name="BusinessProcessMenu" title="businessProcessList.title" page="/businessProcesss.html"/>
+        <!--BusinessProcess-END-->
+
+	    <Menu name="ImportExportMenu" title="importExport.title" page="/importExport.html"/>
+    </Menus>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</MenuConfig>

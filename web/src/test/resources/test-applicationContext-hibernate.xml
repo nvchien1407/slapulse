@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!--
+    ********* DO NOT REMOVE THIS NOTICE **********
+    COPYRIGHT(c)2006 RENEWTEK PTY LTD
+    ********* DO NOT REMOVE THIS NOTICE **********
+-->
+
+    <!-- Hibernate SessionFactory
+         org.springframework.orm.hibernate3.LocalSessionFactoryBean for Hibernate's classic XML mapping files
+         org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean for annotated hibernate
+    -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="${default-datasource-bean}"/>
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.sql.show}</prop>
+                <!-- prop key="hibernate.hbm2ddl.auto">${hibernate.generate_schema}</prop -->
+            </props>
+        </property>
+    </bean>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA)
+-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA)
+-->
+    <!--bean id="transactionManager2" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory2"/>
+    </bean-->
+
+    <!-- Generic DAO - can be used when doing standard CRUD -->
+    <bean id="dao" class="com.renewtek.dao.hibernate.BaseDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- LookupDAO: Hibernate implementation -->
+    <bean id="lookupDAO" class="com.renewtek.dao.hibernate.LookupDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- UserDAO: Mock implementation -->
+    <bean id="userDAO" class="com.renewtek.dao.mock.UserDAOMock"/>
+
+    <!-- RoleDAO: Hibernate implementation -->
+    <bean id="roleDAO" class="com.renewtek.dao.hibernate.RoleDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--Reference-START-->
+    <bean id="referenceDAO" class="com.renewtek.dao.hibernate.ReferenceDAOHibernate" autowire="byName"/>
+    <!--Reference-END-->
+    <bean id="calendarDAO" class="com.renewtek.dao.hibernate.CalendarDAOHibernate" autowire="byName"/>
+    <!--SupplierUpdatesNotify-END-->
+    <!--CalendarDate-START-->
+    <bean id="calendarDateDAO" class="com.renewtek.dao.hibernate.CalendarDateDAOHibernate" autowire="byName"/>
+    <!--CalendarDate-END-->
+    <!--DefaultWeek-START-->
+    <bean id="defaultWeekDAO" class="com.renewtek.dao.hibernate.DefaultWeekDAOHibernate" autowire="byName"/>
+    <!--DefaultWeek-END-->
+    <!--WorkHourRange-START-->
+    <bean id="workHourRangeDAO" class="com.renewtek.dao.hibernate.WorkHourRangeDAOHibernate" autowire="byName"/>
+    <!--WorkHourRange-END-->
+    <!--DayModel-START-->
+    <bean id="dayModelDAO" class="com.renewtek.dao.hibernate.DayModelDAOHibernate" autowire="byName"/>
+    <!--DayModel-END-->
+    <!--ServiceLevelAgreement-START-->
+    <bean id="serviceLevelAgreementDAO" class="com.renewtek.dao.hibernate.ServiceLevelAgreementDAOHibernate"
+          autowire="byName"/>
+    <!--ServiceLevelAgreement-END-->
+    <!--BusinessProcess-START-->
+    <bean id="businessProcessDAO" class="com.renewtek.dao.hibernate.BusinessProcessDAOHibernate" autowire="byName"/>
+    <!--BusinessProcess-END-->
+    
+    <!-- Service -->
+    <bean id="slaService" class="com.renewtek.service.impl.SLAServicesImpl" autowire="byName"/>
+
+</beans>

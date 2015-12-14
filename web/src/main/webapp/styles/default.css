@@ -1,0 +1,129 @@
+/*
+  ******** DO NOT REMOVE THIS NOTICE **********
+  COPYRIGHT(c)2006 RENEWTEK PTY LTD
+  ********* DO NOT REMOVE THIS NOTICE *********
+*/
+
+a { 
+	text-decoration: none; 
+	color: #307082;
+	}
+a:hover { 
+	text-decoration: underline; 
+	color: #D60808;
+}
+body {
+	color: #000000;
+	background: #FFFFFF;
+	font-size: 8pt;
+	font-family: tahoma, arial, helvetica;
+	height:100%;
+}
+
+/* Header Styles */
+#header {
+	color: #FFFFFF;
+	background: #5D819B url(../images/BannerElements.jpg) no-repeat right;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #FFFFFF;
+}
+.headerAppName {
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: left;
+}
+.headerInfo {
+	text-align: left;
+}
+.headerLink {
+	text-align: right;
+}
+.headerLink A {
+	color: #FFFFFF;
+	text-align: right;
+	text-decoration: none;
+}
+/* End Header Styles */
+
+/* Menu Styles */
+.menuContainer {
+	/* Table cell containing the menu div */
+	background: #2A526E url(../images/TreeViewElements.jpg) repeat-x bottom;
+}
+#menu {
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: left;
+	padding: 10px;
+}
+.menuLink {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+.menuLink A {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.menuBuffer {
+	height: 180px;
+}
+
+/* End Menu Styles */
+
+/* Content Styles */
+#content {
+	text-align: left;
+	padding: 10px;
+}
+.contentTitle {
+	font-size: 10pt;
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 1px;
+}
+/* End Content Styles */
+
+/* Footer Styles */
+#footer {
+	color: #2A526E;    /* blue */
+	background: #FFFFFF;
+	text-align: left;
+}
+.footerLegal {
+	padding: 2px;
+	padding-left: 10px;
+}
+/* End Footer Styles */
+
+td.specialDay {
+	background: #EB6769;
+	border-style: dotted;
+	border-color: #5D819B; 
+	border-width: 1px;
+	text-align: center;
+}
+td.defaultHoliday {
+	background: #D7D7D7;
+	border-style: dotted;
+	border-color: #5D819B; 
+	border-width: 1px;
+	text-align: center;
+}
+td.holiday {
+	background: #E8EB89;
+	border-style: dotted;
+	border-color: #5D819B; 
+	border-width: 1px;
+	text-align: center;
+}
+tr.selected{
+	background: #E2F00F;
+}
+tr.unselected{
+	background: #E2EBED;
+}
+
